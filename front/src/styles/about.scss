@@ -1,0 +1,293 @@
+.about {
+	display: flex;
+	@extend %clearfix;
+	.about__left,
+	.about__right {
+		float: left;
+		width: 50%;
+		position: relative;
+		.triangle {
+			height: 100px;
+			width: 100%;
+			&_fill {
+				&_white {
+					fill: $white;
+				}
+				&_beige {
+					fill: $beige;
+				}
+			}
+		}
+		.triangle_position {
+			position: absolute;
+			bottom: 100%;
+		}
+	}
+	.about__left {
+		background: $white;
+		.triangle__visible {
+			visibility: hidden;
+		}
+		.title {
+			@include adaptive-font(63, 24);
+			line-height: 66px;
+			text-transform: uppercase;
+			color: $main-color;
+			font-weight: 500;
+			text-align: center;
+			padding: 45px 0;
+			position: relative;
+			display: block;
+			background-size: contain;
+			background-position: 50% 50%;
+			background-repeat: no-repeat;
+			&::after,
+			&::before {
+				content: "";
+				@include stance("y");
+				display: block;
+				background: rgba($main-color, 0.4);
+				width: 25px;
+				height: 5px;
+			}
+			&::after {
+				right: 20%;
+			}
+			&::before {
+				left: 20%;
+			}
+		}
+		.about__section-title {
+			font-weight: bold;
+		}
+		.user-about {
+			display: flex;
+			justify-content: center;
+			flex-direction: column;
+			text-align: center;
+			.user-about__picture {
+				height: 390px;
+				margin: 0 auto;
+				overflow: hidden;
+				img {
+					max-width: 100%;
+					height: 100%;
+					border-radius: 20px;
+				}
+			}
+			.subtitle {
+				color: $main-color;
+				text-transform: uppercase;
+				@include adaptive-font(35, 21);
+				line-height: 41px;
+				padding: 40px 0;
+				position: relative;
+				&::after {
+					content: "";
+					width: 20%;
+					height: 3px;
+					background-color: rgba($main-color, 0.6);
+					display: block;
+					@include stance("x");
+					top: 70%;
+				}
+			}
+			.user-about__text {
+				@include adaptive-font(16, 14);
+				line-height: 24px;
+				width: 100%;
+				text-align: left;
+				p {
+					padding: 10px 30px;
+				}
+			}
+		}
+	}
+	.about__right {
+		background: $beige;
+		.about-data {
+			padding: 0 0 0 20px;
+			.subtitle {
+				color: $main-color;
+				text-transform: uppercase;
+				@include adaptive-font(35, 21);
+				font-weight: 500;
+				line-height: 41px;
+				padding: 40px 0;
+				position: relative;
+				width: 350px;
+				margin: 0 auto;
+				text-align: center;
+				&::after {
+					content: "";
+					width: 90px;
+					height: 3px;
+					background-color: rgba($main-color, 0.6);
+					display: block;
+					@include stance("x");
+					top: 80%;
+				}
+			}
+			.about-user-info__text {
+				@include adaptive-font(16, 14);
+				line-height: 24px;
+				padding: 0 0 20px 0;
+			}
+			.skills {
+				display: flex;
+				flex-direction: column;
+				@include adaptive-font(28, 21);
+				line-height: 32px;
+				font-weight: 500;
+				color: $main-color;
+				.skills__item {
+					padding: 10px 0;
+					.skill-section__list {
+						display: flex;
+						justify-content: space-evenly;
+						overflow: hidden;
+						@media (max-width: 950px) {
+							&.skill-section__list {
+								flex-wrap: wrap;
+							}
+						}
+						.skill {
+							position: relative;
+							overflow: hidden;
+							.skill__circle {
+								width: 130px;
+								height: 130px;
+								display: block;
+								fill: transparent;
+								stroke-width: 15;
+								@media (max-width: 1200px) {
+									&.skill__circle {
+										width: 110px;
+										height: 110px;
+									}
+								}
+								.skills__circle-under {
+									stroke: #dfdcd5;
+								}
+								.skills__circle-above {
+									stroke: $blue;
+								}
+							}
+							.skill__name {
+								text-align: center;
+								color: $blue;
+								@include adaptive-font(16, 14);
+								position: absolute;
+								top: 50%;
+								left: 50%;
+								transform: translate(-50%, -50%);
+								overflow: hidden;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+@media (max-width: 767px) {
+	.about {
+		flex-direction: column;
+		.about__left,
+		.about__right {
+			float: none;
+			width: 100%;
+			.triangle {
+				width: 50%;
+			}
+		}
+		.about__left {
+			.triangle__visible {
+				visibility: visible;
+				position: absolute;
+				top: -100px;
+				right: 0;
+				fill: $white;
+			}
+			.user-about {
+				margin: 0 auto;
+				width: 500px;
+			}
+		}
+		.about__right {
+			.triangle__visible {
+				visibility: hidden;
+			}
+			.about-data {
+				padding: 0 5px;
+				.about-data__description {
+					margin: 0 auto;
+					width: 500px;
+				}
+				.skills {
+					text-align: center;
+					.skills__item {
+						.skill-section__list {
+							flex-wrap: wrap;
+							.skill {
+								.skill__circle {
+									width: 130px;
+									height: 130px;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+@media (max-width: 540px) {
+	.about {
+		.about__left {
+			.user-about {
+				width: 320px;
+				.subtitle {
+					padding: 10px 0;
+					&::after {
+						top: 80%;
+					}
+				}
+				.user-about__text {
+					p {
+						padding: 5px;
+					}
+				}
+			}
+		}
+		.about__right {
+			.about-data {
+				padding: 0;
+				.subtitle {
+					padding: 15px 0;
+					line-height: 30px;
+					&::after {
+						top: 90%;
+					}
+				}
+				.about-data__description {
+					width: 320px;
+					.about-user-info__text {
+						padding: 0 5px;
+					}
+				}
+			}
+		}
+	}
+}
+
+.maps {
+	position: relative;
+	z-index: 10;
+	height: 930px;
+	#map {
+		width: 100%;
+		height: 100%;
+	}
+}

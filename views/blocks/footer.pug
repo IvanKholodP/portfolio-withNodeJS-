@@ -1,0 +1,26 @@
+footer.footer
+	.footer__block.footer__row_img
+		img(src="./img/footer.png", alt="")
+		.footer__row.footer__row_top
+			.footer__left.footer__row-common
+				span Даний сайт я розробив в рамках навчання в Школі онлайн освіти LoftSchool.
+			.footer__center.footer__row-common
+				.footer__center-menu
+					ul.nav-menu
+						each name, link in {'works.html': 'Мої роботи', 'about.html': 'Про мне', 'blog.html': 'Блог', 'home.html': 'Авторизація'}
+							li.nav-menu__list
+								a(href=`${link}`).nav-menu__link=name
+				.footer__center-socials
+					ul.socials.socials_footer
+						each name, link in {'https://www.facebook.com/ivanxolod': 'fb', 'https://github.com/IvanKholodP': 'github', 'https://www.linkedin.com/in/ivan-kholod-7b4611164/': 'in'}
+							li.socials__item
+								a(href=`${link}` target="_blank").socials__link
+									svg.socials__icon
+										use(href=`#${name}`)
+			.footer__right.footer__row-common
+				ul.footer__contacts 
+					each val, key in {'skype': 'ivanxolod', 'mailto': 'ivan.kholod.work@gmail.com', 'tel': '+380683373661', 'https://www.google.com.ua/maps/place/UNIT.%D0%A1ity/@50.468762,30.4504845,14.67z/data=!4m5!3m4!1s0x0:0x669ebf198692f84f!8m2!3d50.468377!4d30.4620731?hl=uk': 'м.Київ, вулиця Дорогожицька, 3'}
+						li.contacts__item
+							a(href=`${key}:${val}`, target="_blank").contacts__link=val
+		.foeter__row.footer__row_bottom
+			.footer__about-user-name © Іван Холод | 2021

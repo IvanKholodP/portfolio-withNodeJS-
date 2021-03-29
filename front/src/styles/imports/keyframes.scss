@@ -1,0 +1,71 @@
+.show {
+	animation-name: inside;
+	animation-duration: 0.5s;
+	animation-timing-function: linear;
+	transform: rotateY(90deg);
+	transform-style: preserve-3d;
+}
+@keyframes inside {
+	0% {
+		transform: rotateY(0deg);
+	}
+	100% {
+		transform: rotateY(90deg);
+	}
+	0% {
+		transform: rotateY(0deg);
+	}
+}
+.hide {
+	transition-delay: 0.5s;
+	animation-name: outside;
+	animation-duration: 0.5s;
+	animation-timing-function: linear;
+	transform: rotateY(0deg);
+	animation-delay: 0.5s;
+	transform-style: preserve-3d;
+	visibility: visible;
+}
+@keyframes outside {
+	0% {
+		transform: rotateY(-90deg);
+	}
+	100% {
+		transform: rotateY(0deg);
+	}
+}
+.second {
+	transition-delay: 0.5s;
+	animation-name: second;
+	animation-duration: 0.5s;
+	animation-timing-function: linear;
+	transform: rotateY(0deg);
+	transform-style: preserve-3d;
+}
+@keyframes second {
+	0% {
+		transform: rotateY(0deg);
+		visibility: visible;
+	}
+	100% {
+		transform: rotateY(90deg);
+		visibility: visible;
+	}
+}
+.first {
+	transition-delay: 0.5s;
+	animation-name: first;
+	animation-duration: 0.5s;
+	animation-timing-function: linear;
+	transform: rotateY(0deg);
+	animation-delay: 0.5s;
+	transform-style: preserve-3d;
+}
+@keyframes first {
+	0% {
+		transform: rotateY(-90deg);
+	}
+	100% {
+		transform: rotateY(0deg);
+	}
+}

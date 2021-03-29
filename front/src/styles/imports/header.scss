@@ -1,0 +1,252 @@
+.header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 50;
+	padding: 0 30px;
+	transition: transform 0.3s linear;
+	&.header_hide {
+		transform: translateY(-60px);
+	}
+	&::before {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-color: rgba(0, 0, 0, 0.6);
+		// background-color: $blue;
+		z-index: 2;
+	}
+	.header_body {
+		position: relative;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		height: 60px;
+		.socials {
+			position: absolute;
+			top: 10px;
+			left: -20px;
+			display: flex;
+			z-index: 3;
+			.socials__item {
+				.socials__icon {
+					width: 40px;
+					height: 35px;
+					fill: $white;
+					margin: 0 10px 0 0;
+				}
+				:hover svg {
+					fill: $blue;
+					cursor: pointer;
+				}
+			}
+		}
+		.header__burger {
+			display: none;
+		}
+		.header__menu {
+			.nav-menu {
+				display: flex;
+				.nav-menu__list {
+					padding: 0 0 0 20px;
+					position: relative;
+					z-index: 2;
+					.nav-menu__link {
+						text-transform: uppercase;
+						color: $white;
+						@include adaptive-font(18, 16);
+						letter-spacing: 1px;
+						font-weight: 500px;
+						&:hover {
+							color: $blue;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+@media (max-width: 767px) {
+	body._lock {
+		overflow: hidden;
+	}
+	.header {
+		padding: 0 10px;
+		.header_body {
+			height: 40px;
+			.header__socials {
+				.socials {
+					top: 5px;
+					.socials__icon {
+						width: 30px;
+						height: 25px;
+						margin: 0 0 0 5px;
+					}
+				}
+			}
+			.header__burger {
+				display: block;
+				position: relative;
+				width: 30px;
+				height: 20px;
+				position: relative;
+				z-index: 3;
+				&::before,
+				&::after {
+					content: "";
+					background-color: $white;
+					position: absolute;
+					width: 100%;
+					height: 2px;
+					left: 0;
+					transition: all 0.5s ease 0s;
+				}
+				&::before {
+					top: 0;
+				}
+				&::after {
+					bottom: 0;
+				}
+				& span {
+					position: absolute;
+					left: 0;
+					background-color: $white;
+					width: 100%;
+					height: 2px;
+					top: 9px;
+					transition: all 0.5s ease 0s;
+				}
+				&._active__burger::before {
+					transform: rotate(45deg);
+					top: 9px;
+				}
+				&._active__burger::after {
+					transform: rotate(-45deg);
+					bottom: 9px;
+				}
+				&._active__burger span {
+					transform: scale(0);
+				}
+			}
+			.header__menu {
+				position: fixed;
+				left: 0;
+				top: -100%;
+				width: 100%;
+				height: 100%;
+				background-color: rgba(22, 90, 209, 0.8);
+				padding: 60px 0 0 0;
+				transition: all 0.5s ease 0s;
+				overflow: auto;
+				.nav-menu {
+					flex-direction: column;
+					align-items: center;
+					padding: 10px 0 0 0;
+					.nav-menu__list {
+						padding: 30px 0 0 0;
+						a {
+							position: relative;
+							display: inline-block;
+						}
+						a::after {
+							display: block;
+							content: "";
+							background-color: $white;
+							height: 3px;
+							width: 0%;
+							@include stance("x");
+							transition: width 0.5s ease-in-out;
+						}
+						& a:hover::after,
+						& a:focus::after {
+							width: 100%;
+						}
+						.nav-menu__link {
+							&:hover {
+								color: $white;
+							}
+						}
+					}
+				}
+				&._active__burger {
+					top: 0;
+				}
+			}
+		}
+	}
+}
+
+.hero {
+	height: 600px;
+	position: relative;
+	overflow: hidden;
+	.hero__bg {
+		margin: 0 auto;
+		height: 600px;
+		overflow: hidden;
+		position: relative;
+		padding: 0 0 60% 0;
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+	}
+	.hero__title {
+		@include stance("y");
+		text-align: center;
+		width: 100%;
+		> img {
+			opacity: 1;
+		}
+		.section-title {
+			display: inline-block;
+		}
+		.hero__user-block {
+			@include stance();
+			.user__photo-img {
+				border-radius: 50%;
+				width: 140px;
+				height: 140px;
+				object-fit: cover;
+				.user__photo-img img {
+					max-width: 100%;
+				}
+			}
+			.user__name {
+				@include adaptive-font(35, 21);
+				line-height: 41px;
+				font-weight: 500;
+				color: #ffffff;
+			}
+			.user__desc {
+				@include adaptive-font(16, 14);
+				line-height: 24px;
+				color: #ffffff;
+			}
+		}
+	}
+	.down-arrow {
+		@include stance("x");
+		bottom: 40px;
+		z-index: 15;
+		.down-arrow__icon {
+			width: 26px;
+			height: 16px;
+			opacity: 0.6;
+			fill: $white;
+			&:hover {
+				opacity: 1;
+				cursor: pointer;
+			}
+		}
+	}
+}

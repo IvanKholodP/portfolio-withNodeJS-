@@ -1,0 +1,32 @@
+.content__body-auth
+	.auth__label Авторизуйтесь
+	form(action="#" class="form")
+		.form__item
+			label(for="userName" class="form__label")
+			.user__login-img
+				img(src="./img/user_login.png")
+			input(type="text" id="userName" name="name" placeholder="Логін" class="form__input")
+		.form__item
+			label(for="userPassword" class="form__label")
+			.user__login-parol
+				img(src="./img/user_parol.png")
+			input(type="password" id="userPassword" name="password" placeholder="Пароль" class="form__input")
+		.form__item
+			.checkbox
+				input(type="checkbox" name="check" id="formCheck" class="checkbox__input")
+				label(for="formCheck" class="checkbox__label") Я людина
+		.form__item
+			.radiotitle Ви точно не робот?
+			.radiobox
+				input(type="radio" name="radio" id="formRadio1" class="radio__input" checked)
+				label(for="formRadio1" class="checkbox__label") Так
+			.radiobox
+				input(type="radio" name="radio" id="formRadio2" class="radio__input")
+				label(for="formRadio2" class="checkbox__label") Робот
+	.auth__menu
+		ul.nav-menu
+			//- each name, link in {'welcome.html': 'На головну', 'admin.html': 'Вхід'}
+			li.nav-menu__list
+				a(href="##").nav-menu__link.link__back-home На головну
+			li.nav-menu__list
+				a(href="admin.html").nav-menu__link Вхід

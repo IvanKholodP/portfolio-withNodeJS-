@@ -1,0 +1,82 @@
+extends ../layout.pug 
+
+block content
+		.wrapper
+			- var autor = 'Іван Холод';
+			- var desc = 'Особистий сайт Front-end Developer';
+			include ../blocks/header.pug
+			section.section.about
+				.about__left
+					svg(
+						viewbox="0 0 1000 100" 
+						preserveAspectRatio="none" 
+						class="triangle triangle_fill_white triangle_position")
+						polygon(points="0,0 0,100 1000,100")
+					svg(
+						viewbox="0 0 1000 100" 
+						preserveAspectRatio="none" 
+						class="triangle triangle_fill_beige triangle_position triangle__visible")
+						polygon(points="0,100 1000,100 1000,0")
+					+title ('Про мене', 'vector_about.png', 'about__section-title')
+					.user-about
+						.user-about__picture
+							img(src="./img/avatar.jpg", alt="")
+						.user-about__title.subtitle
+							|Хто я
+						.user-about__text
+							p Я веб-розробник з Києва. Мені 29 років
+							p Це другий параграф. Тут більш детально про мене але не багато тексту. Все це буде заповнюватись через адмінку.
+				.about__right
+					svg(
+						viewbox="0 0 1000 100" 
+						preserveAspectRatio="none" 
+						class="triangle triangle_fill_beige triangle_position triangle__visible")
+						polygon(points="0,100 1000,100 1000,0")
+					.about-data
+						.about-data__description.about-user-info
+							.about-user-info__title
+								.subtitle 
+									| Чим я можу бути вам корисним
+							.about-user-info__text
+								p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, quia.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, quia.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, quia.
+						.about-data__content
+							ul.skills
+									li.skills__item
+										| Frontend
+										.skill-section
+											.skill-section__title= skill
+											ul.skill-section__list
+												each FrontskillList in ['HTML5', 'CSS3', 'JavaScript', 'SASS']
+													li.skills-section__item
+														.skill
+															svg(viewbox="0 0 100 100" preserveAspectRatio="none").skill__circle
+																circle(cx="50" cy="50" r="40").skills__circle-under
+																circle(cx="50" cy="50" r="40").skills__circle-above
+															.skill__name= FrontskillList
+									li.skills__item
+										| Backend
+										.skill-section
+											.skill-section__title= skill
+											ul.skill-section__list
+												each BackskillList in ['Node.js & npm', 'mySQL', 'Mongo.db']
+													li.skills-section__item
+														.skill
+															svg(viewbox="0 0 100 100" preserveAspectRatio="none").skill__circle
+																circle(cx="50" cy="50" r="40").skills__circle-under
+																circle(cx="50" cy="50" r="40").skills__circle-above
+															.skill__name= BackskillList
+									li.skills__item
+										| WorkFlow
+										.skill-section
+											.skill-section__title= skill
+											ul.skill-section__list
+												each WorkkillList in ['Git', 'Webpack', 'Avocode', 'REST API']
+													li.skills-section__item
+														.skill
+															svg(viewbox="0 0 100 100" preserveAspectRatio="none").skill__circle
+																circle(cx="50" cy="50" r="40").skills__circle-under
+																circle(cx="50" cy="50" r="40").skills__circle-above
+															.skill__name= WorkkillList
+			section.section.maps
+				#map
+			include ../blocks/footer.pug

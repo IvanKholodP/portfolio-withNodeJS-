@@ -1,0 +1,31 @@
+block variables 
+header.section.header
+	.header_body
+		.header__socials
+			ul.socials
+				each name, link in {'https://www.facebook.com/ivanxolod': 'fb', 'https://github.com/IvanKholodP': 'github', 'https://www.linkedin.com/in/ivan-kholod-7b4611164/': 'in'}
+					li.socials__item
+						a(href=`${link}` target="_blank").socials__link
+							svg.socials__icon
+								use(href=`#${name}`)
+		.header__burger
+			span
+		nav.header__menu
+			ul.nav-menu
+				each name, link in {'works.html': 'Мої роботи', 'about.html': 'Про мне', 'blog.html': 'Блог', 'home.html': 'Авторизація'}
+					li.nav-menu__list
+						a(href=`${link}`).nav-menu__link=name
+section.section.hero
+	.hero__bg
+		img(src="./img/bg.png", alt="").hero__bg-img
+	a(href="").down-arrow
+		svg.down-arrow__icon
+			use(href="#arrow_down")
+	.hero__title
+		img(src="./img/decor/vector_header.png", alt="").section-title
+		.user.hero__user-block
+			.user__photo
+				.user__photo-avatar
+					img(src="./img/avatar.jpg", alt="").user__photo-img
+			.user__name #{autor}
+			.user__desc #{desc}

@@ -1,0 +1,11 @@
+extends ../layout.pug
+
+block content 
+		.wrapper
+			.welcome__auth
+				img(src="./img/bg.png", alt="").welcome__bg-img
+				.content__welcome
+					.content__item
+						include ../blocks/welcome
+						include ../blocks/auth
+				.content__footer © Іван Холод | 2021

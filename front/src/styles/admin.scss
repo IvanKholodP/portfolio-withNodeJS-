@@ -1,0 +1,160 @@
+.admin_wrapper {
+	height: 100%;
+	position: relative;
+	font-family: "Roboto", sans-serif;
+	font-weight: 400;
+	overflow: hidden;
+	.admin_img {
+		position: relative;
+		height: 100%;
+		width: 100%;
+		overflow: hidden;
+		opacity: 0.9;
+		img {
+			min-width: 100%;
+			min-height: 100%;
+			object-fit: fill;
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+	}
+	.admin_content {
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		.header_admin {
+			height: 70px;
+			width: 100%;
+			background-color: $blue;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			padding: 0 30px;
+			color: $white;
+			.admin_title {
+				@include adaptive-font(36, 18);
+			}
+			.admin_backHome {
+				@include adaptive-font(20, 14);
+				a {
+					text-decoration: underline;
+					color: $white;
+				}
+			}
+		}
+		.content_tabs {
+			background-color: rgba(255, 255, 255, 0.075);
+			height: 100%;
+			.tabs_menu {
+				display: flex;
+				width: 100%;
+				height: 50px;
+				background-color: #c2c2c1;
+				color: $main-color;
+				position: relative;
+				@include adaptive-font(20, 18);
+				.tabs_menu-item {
+					width: 200px;
+					height: 100%;
+					text-align: center;
+					position: relative;
+					line-height: 47px;
+					border-right: #5f5f5f 4px solid;
+					font-weight: 700;
+					text-transform: uppercase;
+					cursor: pointer;
+				}
+				.tabs_menu-item._admin_active {
+					background-color: $white;
+					color: $blue;
+				}
+			}
+			.tabs_content {
+				height: 100%;
+				.tab {
+					padding: 50px;
+					display: none;
+					position: relative;
+					height: 100%;
+					.admin-form {
+						display: flex;
+						.admin-about-me-box {
+							@include adaptive-font(24, 18);
+							font-weight: 500;
+							display: flex;
+							flex-direction: column;
+							padding: 0 10% 0 0;
+							flex: 1 0 33.333%;
+							.admin-about-me-label {
+								display: flex;
+								justify-content: space-between;
+								@include adaptive-font(20, 16);
+								font-weight: 400;
+								padding: 20px 0;
+								position: relative;
+								input {
+									width: 30px;
+									height: 20px;
+									border-radius: 5px;
+									padding: 0 0 0 7px;
+								}
+							}
+						}
+					}
+					.admin-form.admin-blog,
+					.admin-works {
+						display: flex;
+						flex-direction: column;
+						p {
+							@include adaptive-font(28, 18);
+							font-weight: 500;
+						}
+						input {
+							margin: 20px 0;
+							height: 40px;
+							width: 400px;
+						}
+						input,
+						textarea {
+							padding: 3px 0 0 5px;
+							border-radius: 10px;
+						}
+					}
+					.admin_save_button {
+						position: absolute;
+						left: 50px;
+						bottom: 200px;
+						width: 180px;
+						background-color: $beige;
+						@include adaptive-font(22, 18);
+						height: 40px;
+						text-align: center;
+						line-height: 37px;
+						border-radius: 20px;
+						text-transform: uppercase;
+						font-weight: 500;
+						box-shadow: 2px 5px 5px #000000c4;
+						transition: background-color 0.3s ease 0s;
+						cursor: pointer;
+						&:hover {
+							background-color: $blue;
+							color: $white;
+						}
+						&:active {
+							position: absolute;
+							left: 50px;
+							bottom: 198px;
+							box-shadow: 0px 2px 0px #000000c4;
+						}
+					}
+				}
+				.tab._admin_active {
+					display: block;
+				}
+			}
+		}
+	}
+}

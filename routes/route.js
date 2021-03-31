@@ -17,4 +17,8 @@ router.get('/about', (req, res) => {
 	res.render('pages/about', { title: 'About' });
 });
 
+router.get('/admin', (req, res) => {
+	res.render('pages/admin', { title: 'Admin' });
+});
+
 module.exports = router;

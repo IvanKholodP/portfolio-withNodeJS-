@@ -1,0 +1,64 @@
+extends ../layout.pug 
+
+block content
+		.admin_wrapper
+			img(src="./img/admin.jpg", alt="").admin_img
+			main.admin_content
+				header.header_admin 
+					.admin_title Панель адміністрування
+					.admin_backHome
+						a(href="/") Повернутися на сайт 
+				section.content_tabs
+					.tabs_menu
+						.tabs_menu-item._admin_active(data-tab-name="tab-1") Про мене
+						.tabs_menu-item(data-tab-name="tab-2") Блог
+						.tabs_menu-item(data-tab-name="tab-3") Мої роботи
+					.tabs_content 
+						.tab.tab-1._admin_active 
+							form#admin-about-me.admin-form.admin-about-me
+								fieldset.admin-about-me-box Frontend
+									label(for="skill_html").admin-about-me-label HTML5
+										input(type="text" maxlength="3" placeholder="%")#skill_html
+									label(for="skill_html").admin-about-me-label CSS3
+										input(type="text" maxlength="3" placeholder="%")#skill_css
+									label(for="skill_html").admin-about-me-label JavaScript
+										input(type="text" maxlength="3" placeholder="%")#skill_js
+									label(for="skill_html").admin-about-me-label SASS
+										input(type="text" maxlength="3" placeholder="%")#skill_sass
+								fieldset.admin-about-me-box Backend
+									label(for="skill_html").admin-about-me-label mySQL
+										input(type="text" maxlength="3" placeholder="%")#skill_html
+									label(for="skill_html").admin-about-me-label Node.js and npm
+										input(type="text" maxlength="3" placeholder="%")#skill_css
+									label(for="skill_html").admin-about-me-label Mongo.db
+										input(type="text" maxlength="3" placeholder="%")#skill_js
+								fieldset.admin-about-me-box Workflow
+									label(for="skill_html").admin-about-me-label Git
+										input(type="text" maxlength="3" placeholder="%")#skill_html
+									label(for="skill_html").admin-about-me-label Webpack
+										input(type="text" maxlength="3" placeholder="%")#skill_css
+									label(for="skill_html").admin-about-me-label Avocode
+										input(type="text" maxlength="3" placeholder="%")#skill_js
+									label(for="skill_html").admin-about-me-label REST API
+										input(type="text" maxlength="3" placeholder="%")#skill_js
+							.admin_save_button 
+								span#admin-about-me__save Зберегти
+						.tab.tab-2 
+							form#admin-blog.admin-form.admin-blog
+								p Добавити запис
+								input(type="text" placeholder="Назва")#admin-blog__article-title
+								input(type="text" placeholder="Дата")#admin-blog__article-data
+								textarea(rows="8" cols="50" placeholder="Зміст")#admin-blog__article-content
+							.admin_save_button 
+								span#admin-blog__save Добавити
+						.tab.tab-3
+							form#admin-works.admin-form.admin-works
+								p Добавити Роботу
+								input(type="text" placeholder="Назва проекта")#admin-works__project-title
+								input(type="text" placeholder="Технології")#admin-works__project-technologies
+								input(type="text" placeholder="Посилання")#admin-works__project-link
+								p
+									label.admin-works__project-select-image Вибрати зображення
+									input(type="file")#admin-works__project-select-image
+							.admin_save_button 
+								span#admin-works__save Добавити

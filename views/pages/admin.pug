@@ -2,7 +2,6 @@ extends ../layout.pug
 
 block content
 		.admin_wrapper
-			img(src="./img/admin.jpg", alt="").admin_img
 			main.admin_content
 				header.header_admin 
 					.admin_title Панель адміністрування
@@ -14,11 +13,13 @@ block content
 						.tabs_menu-item(data-tab-name="tab-2") Блог
 						.tabs_menu-item(data-tab-name="tab-3") Мої роботи
 					.tabs_content 
+						.admin_img
+							img(src="./img/admin.jpg", alt="")
 						.tab.tab-1._admin_active 
 							form#admin-about-me.admin-form.admin-about-me
 								fieldset.admin-about-me-box Frontend
 									label(for="skill_html").admin-about-me-label HTML5
-										input(type="text" maxlength="3" placeholder="%")#skill_html
+										input(type="number" maxlength="4" placeholder="%")#skill_html5
 									label(for="skill_html").admin-about-me-label CSS3
 										input(type="text" maxlength="3" placeholder="%")#skill_css
 									label(for="skill_html").admin-about-me-label JavaScript

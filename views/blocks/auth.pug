@@ -1,6 +1,6 @@
 .content__body-auth
 	.auth__label Авторизуйтесь
-	form(action="#" class="form")
+	form(action="admin" class="form" method="post")
 		.form__item
 			label(for="userName" class="form__label")
 			.user__login-img
@@ -27,6 +27,6 @@
 		ul.nav-menu
 			//- each name, link in {'welcome.html': 'На головну', 'admin.html': 'Вхід'}
 			li.nav-menu__list
-				a(href="##").nav-menu__link.link__back-home На головну
+				input(name="" type="submit" value="На головну").nav-menu__link.link__back-home 
 			li.nav-menu__list
-				a(href="admin.html").nav-menu__link Вхід
+				input(name="" type="submit" value="Вхід").nav-menu__link

@@ -6,3 +6,7 @@ import './modules/keyframes';
 import './modules/scrollBlog';
 import './modules/hideShowHeader';
 import './modules/admin';
+import './modules/skillsProgressBar';
+import './modules/accordion';
+
+import './sendMail/sendMail';

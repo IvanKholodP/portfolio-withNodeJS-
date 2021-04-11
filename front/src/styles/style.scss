@@ -2,11 +2,18 @@
 @import "./nullstyle.scss";
 @import "./setups.scss";
 @import "../fonts/fonts.scss";
-// file of blocks
-@import "./about.scss";
+
+// file of pages
+@import "./pages/about.scss";
+@import "./pages/blog.scss";
+@import "./pages/welcome.scss";
+@import "./pages/admin.scss";
+@import "./pages/works.scss";
+
+// file of imports
 @import "./imports/header.scss";
 @import "./imports/footer.scss";
-@import "./blog.scss";
-@import "./welcome.scss";
 @import "./imports/keyframes.scss";
-@import "./admin.scss";
+@import "./imports/contscts.scss";
+@import "./imports/hero.scss";
+@import "./imports/triangle.scss";

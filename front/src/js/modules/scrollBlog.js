@@ -26,11 +26,11 @@ window.addEventListener('scroll', () => {
 	let scrollDistance = window.scrollY;
 	const activeBlogAside = '_active_blog__aside';
 
-	document.querySelectorAll('.article').forEach((el, i) => {
-		if (el.offsetTop - document.querySelector('.header_body').clientHeight + document.querySelector('.hero').clientHeight <= scrollDistance) {
-			document.querySelectorAll('.blog_aside .blog_aside__link').forEach((el) => {
-				if (el.classList.contains(activeBlogAside)) {
-					el.classList.remove(activeBlogAside)
+	document.querySelectorAll('.article').forEach((article, i) => {
+		if (article.offsetTop - document.querySelector('.header_body').clientHeight + document.querySelector('.hero').clientHeight <= scrollDistance) {
+			document.querySelectorAll('.blog_aside .blog_aside__link').forEach((link) => {
+				if (link.classList.contains(activeBlogAside)) {
+					link.classList.remove(activeBlogAside)
 				}
 			})
 			document.querySelectorAll('.blog_aside .blog_aside__item')[i].querySelector('.blog_aside__link').classList.add(activeBlogAside)

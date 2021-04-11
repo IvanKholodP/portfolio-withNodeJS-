@@ -158,8 +158,9 @@
 								width: 130px;
 								height: 130px;
 								display: block;
-								fill: transparent;
+								fill: none;
 								stroke-width: 15;
+								transform: rotate(-90deg);
 								@media (max-width: 1200px) {
 									&.skill__circle {
 										width: 110px;
@@ -168,9 +169,12 @@
 								}
 								.skills__circle-under {
 									stroke: #dfdcd5;
+									fill: none;
 								}
 								.skills__circle-above {
 									stroke: $blue;
+									// stroke-dasharray: 50 10;
+									// transform: rotate(-90 150 150);
 								}
 							}
 							.skill__name {
@@ -188,6 +192,23 @@
 				}
 			}
 		}
+	}
+}
+.maps {
+	position: relative;
+	z-index: 10;
+	// height: 930px;
+	// .block_accordion-map {
+	// 	width: 100%;
+	// 	height: 50px;
+	// 	background-color: $beige;
+	// 	color: $main-color;
+	// 	@include adaptive-font(24, 18);
+	// }
+	#map {
+		height: 930px;
+		width: 100%;
+		// height: 100%;
 	}
 }
 
@@ -242,6 +263,11 @@
 			}
 		}
 	}
+	.maps {
+		#map {
+			height: 650px;
+		}
+	}
 }
 @media (max-width: 540px) {
 	.about {
@@ -280,14 +306,9 @@
 			}
 		}
 	}
-}
-
-.maps {
-	position: relative;
-	z-index: 10;
-	height: 930px;
-	#map {
-		width: 100%;
-		height: 100%;
+	.maps {
+		#map {
+			height: 430px;
+		}
 	}
 }

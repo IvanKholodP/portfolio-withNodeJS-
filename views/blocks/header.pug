@@ -12,20 +12,6 @@ header.section.header
 			span
 		nav.header__menu
 			ul.nav-menu
-				each name, link in {'works.html': 'Мої роботи', 'about.html': 'Про мне', 'blog.html': 'Блог', 'home.html': 'Авторизація'}
+				each name, link in {'works': 'Мої роботи', 'about': 'Про мне', 'blog': 'Блог', '/': 'Авторизація'}
 					li.nav-menu__list
 						a(href=`${link}`).nav-menu__link=name
-section.section.hero
-	.hero__bg
-		img(src="./img/bg.png", alt="").hero__bg-img
-	a(href="").down-arrow
-		svg.down-arrow__icon
-			use(href="#arrow_down")
-	.hero__title
-		img(src="./img/decor/vector_header.png", alt="").section-title
-		.user.hero__user-block
-			.user__photo
-				.user__photo-avatar
-					img(src="./img/avatar.jpg", alt="").user__photo-img
-			.user__name #{autor}
-			.user__desc #{desc}

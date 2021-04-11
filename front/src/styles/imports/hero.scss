@@ -1,0 +1,69 @@
+.hero {
+	height: 600px;
+	position: relative;
+	overflow: hidden;
+	.hero__bg {
+		margin: 0 auto;
+		height: 600px;
+		overflow: hidden;
+		position: relative;
+		padding: 0 0 60% 0;
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+	}
+	.hero__title {
+		@include stance("y");
+		text-align: center;
+		width: 100%;
+		> img {
+			opacity: 1;
+		}
+		.section-title {
+			display: inline-block;
+		}
+		.hero__user-block {
+			@include stance();
+			.user__photo-img {
+				border-radius: 50%;
+				width: 140px;
+				height: 140px;
+				object-fit: cover;
+				.user__photo-img img {
+					max-width: 100%;
+				}
+			}
+			.user__name {
+				@include adaptive-font(35, 21);
+				line-height: 41px;
+				font-weight: 500;
+				color: #ffffff;
+			}
+			.user__desc {
+				@include adaptive-font(16, 14);
+				line-height: 24px;
+				color: #ffffff;
+			}
+		}
+	}
+	.down-arrow {
+		@include stance("x");
+		bottom: 40px;
+		z-index: 15;
+		.down-arrow__icon {
+			width: 26px;
+			height: 16px;
+			opacity: 0.6;
+			fill: $white;
+			&:hover {
+				opacity: 1;
+				cursor: pointer;
+			}
+		}
+	}
+}

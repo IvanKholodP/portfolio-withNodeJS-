@@ -1,3 +1,10 @@
 mixin title (title, url, addClass)
 	.title(style=`background-image: url('img/decor/${url}')` class=addClass)=title 
 	
+
+mixin circle_svg(scill_name)
+	.skill
+		svg(viewbox="0 0 100 100" preserveAspectRatio="none").skill__circle
+			//- circle(cx="50" cy="50" r="40").skills__circle-under
+			circle(cx="50" cy="50" r="40").skills__circle-above 
+		.skill__name #{scill_name}

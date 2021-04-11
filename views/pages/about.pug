@@ -5,6 +5,7 @@ block content
 			- var autor = 'Іван Холод';
 			- var desc = 'Особистий сайт Front-end Developer';
 			include ../blocks/header.pug
+			include ../blocks/hero.pug
 			section.section.about
 				.about__left
 					svg(
@@ -41,42 +42,39 @@ block content
 								p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, quia.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, quia.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, quia.
 						.about-data__content
 							ul.skills
-									li.skills__item
-										| Frontend
+									li.skills__item Frontend
 										.skill-section
-											.skill-section__title= skill
 											ul.skill-section__list
-												each FrontskillList in ['HTML5', 'CSS3', 'JavaScript', 'SASS']
-													li.skills-section__item
-														.skill
-															svg(viewbox="0 0 100 100" preserveAspectRatio="none").skill__circle
-																circle(cx="50" cy="50" r="40").skills__circle-under
-																circle(cx="50" cy="50" r="40").skills__circle-above
-															.skill__name= FrontskillList
-									li.skills__item
-										| Backend
+												li.skills-section__item
+													+circle_svg('HTML5')
+												li.skills-section__item
+													+circle_svg('CSS3')
+												li.skills-section__item
+													+circle_svg('JavaScript')
+												li.skills-section__item
+													+circle_svg('SASS')
+									li.skills__item Backend
 										.skill-section
-											.skill-section__title= skill
 											ul.skill-section__list
-												each BackskillList in ['Node.js & npm', 'mySQL', 'Mongo.db']
-													li.skills-section__item
-														.skill
-															svg(viewbox="0 0 100 100" preserveAspectRatio="none").skill__circle
-																circle(cx="50" cy="50" r="40").skills__circle-under
-																circle(cx="50" cy="50" r="40").skills__circle-above
-															.skill__name= BackskillList
-									li.skills__item
-										| WorkFlow
+												li.skills-section__item
+													+circle_svg('Node.js & npm')
+												li.skills-section__item
+													+circle_svg('mySQL')
+												li.skills-section__item
+													+circle_svg('Mongo.db')
+									li.skills__item WorkFlow
 										.skill-section
-											.skill-section__title= skill
 											ul.skill-section__list
-												each WorkkillList in ['Git', 'Webpack', 'Avocode', 'REST API']
-													li.skills-section__item
-														.skill
-															svg(viewbox="0 0 100 100" preserveAspectRatio="none").skill__circle
-																circle(cx="50" cy="50" r="40").skills__circle-under
-																circle(cx="50" cy="50" r="40").skills__circle-above
-															.skill__name= WorkkillList
+												li.skills-section__item
+													+circle_svg('Git')
+												li.skills-section__item
+													+circle_svg('Webpack')
+												li.skills-section__item
+													+circle_svg('Avocode')
+												li.skills-section__item
+													+circle_svg('REST API')
 			section.section.maps
-				#map
+				.block_accordion-map.accordion Карта
+				#map.map
+			//- include ../blocks/contacts.pug
 			include ../blocks/footer.pug

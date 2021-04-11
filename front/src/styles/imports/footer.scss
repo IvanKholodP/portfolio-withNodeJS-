@@ -6,6 +6,7 @@
 	height: 186px;
 	@include adaptive-font(16, 14);
 	color: $white;
+	background-color: $main-color;
 	a {
 		color: $white;
 	}

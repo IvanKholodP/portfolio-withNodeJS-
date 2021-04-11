@@ -1,0 +1,17 @@
+extends ../layout.pug 
+
+block content
+		.wrapper
+			- var autor = 'Іван Холод';
+			- var desc = 'Особистий сайт Front-end Developer';
+			include ../blocks/header.pug
+			include ../blocks/hero.pug
+			section.section.works
+				include ../blocks/triangle.pug
+				+title ('Мої роботи', 'vector_about.png', 'works__section-title')
+				.slider__works
+				.works__footer(style="background-image: url('img/footer.png')")
+					include ../blocks/contacts.pug
+					include ../blocks/footer.pug
+
+

@@ -1,0 +1,19 @@
+.block_triangle {
+	display: flex;
+	.triangle_left,
+	.triangle_right {
+		position: relative;
+		flex: 1 0 50%;
+		.triangle {
+			height: 100px;
+			width: 100%;
+			&_fill {
+				fill: $white;
+			}
+		}
+	}
+	.triangle_position {
+		position: absolute;
+		bottom: 100%;
+	}
+}

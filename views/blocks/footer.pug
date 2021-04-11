@@ -1,13 +1,13 @@
 footer.footer
-	.footer__block.footer__row_img
-		img(src="./img/footer.png", alt="")
+	.footer__block#footer__block
+		//- img(src="./img/footer.png", alt="")
 		.footer__row.footer__row_top
 			.footer__left.footer__row-common
 				span Даний сайт я розробив в рамках навчання в Школі онлайн освіти LoftSchool.
 			.footer__center.footer__row-common
 				.footer__center-menu
 					ul.nav-menu
-						each name, link in {'works.html': 'Мої роботи', 'about.html': 'Про мне', 'blog.html': 'Блог', 'home.html': 'Авторизація'}
+						each name, link in {'works': 'Мої роботи', 'about': 'Про мне', 'blog': 'Блог', '/': 'Авторизація'}
 							li.nav-menu__list
 								a(href=`${link}`).nav-menu__link=name
 				.footer__center-socials

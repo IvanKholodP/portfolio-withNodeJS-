@@ -1,16 +1,14 @@
 const { Router } = require('express');
 const router = Router();
 const nodemailer = require('nodemailer');
-const configDev = require('../config/dev');
-
-
+const config = require('../config/production');
 
 
 router.get('/works', (req, res) => {
 	res.render('pages/works', { title: 'Works' });
 });
 
-router.post('/works', function (req, res) {
+router.post('/works', (req, res) => {
 	console.log(req.body)
 	//вимагаємо наявності імені, зворотньої пошти та текста повідомлення
 	if (!req.body.name || !req.body.email || !req.body.text) {
@@ -24,8 +22,8 @@ router.post('/works', function (req, res) {
 		port: 465,
 		secure: true,
 		auth: {
-			user: configDev.auth.user,
-			pass: configDev.auth.pass
+			user: config.auth.user,
+			pass: config.auth.pass
 		},
 		tls: {
 			rejectUnauthorized: false
@@ -33,8 +31,8 @@ router.post('/works', function (req, res) {
 	});
 	const mailOptions = {
 		from: `"${req.body.name}" <${req.body.email}>`,
-		to: configDev.auth.user,
-		subject: configDev.subject,
+		to: config.auth.user,
+		subject: config.subject,
 		text: req
 			.body
 			.text
@@ -42,7 +40,7 @@ router.post('/works', function (req, res) {
 			.slice(0, 500) + `\n Відправлено з: <${req.body.email}>`
 	};
 	//відправляємо пошту
-	transporter.sendMail(mailOptions, function (error, info) {
+	transporter.sendMail(mailOptions, (error, info) => {
 		if (error) {
 			return res.json({ status: 'При відправці повідомлення виникла помилка' });
 		}

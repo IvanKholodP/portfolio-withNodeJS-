@@ -45,13 +45,15 @@ block content
 							.admin_save_button 
 								span#admin-about-me__save Зберегти
 						.tab.tab-2 
-							form#admin-blog.admin-form.admin-blog
+							form#admin-blog(action ="" method="POST").admin-form.admin-blog
 								p Добавити запис
-								input(type="text" placeholder="Назва")#admin-blog__article-title
-								input(type="text" placeholder="Дата")#admin-blog__article-data
-								textarea(rows="8" cols="50" placeholder="Зміст")#admin-blog__article-content
-							.admin_save_button 
-								span#admin-blog__save Добавити
+								.status 
+								input(name="list" type="number" placeholder="Номер статті")#admin-blog__article-list
+								input(name="title" type="text" placeholder="Назва")#admin-blog__article-title
+								input(name="date" type="text" placeholder="Дата")#admin-blog__article-data
+								textarea(name="text" rows="8" cols="50" placeholder="Зміст")#admin-blog__article-content
+								.admin_save_button
+									input(name="" type="submit" value="Добавити")
 						.tab.tab-3
 							form#admin-works.admin-form.admin-works
 								p Добавити Роботу

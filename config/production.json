@@ -1,0 +1,14 @@
+{
+	"mongoUrl": "mongodb+srv://ivan:1718asd@cluster0.o9eb5.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+	"subject": "Повідомлення з сайта портфоліо",
+	"host": "smtp.gmail.gom",
+	"port": 465,
+	"secure": true,
+	"auth": {
+		"user": "ivan.kholod.work@gmail.com",
+		"pass": "zohan1991"
+	},
+	"tls": {
+		"rejectUnauthorized": false
+	}
+}

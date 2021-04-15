@@ -5,12 +5,6 @@ let contentAuth = document.querySelector('.content__body-auth');
 let contentWelcome = document.querySelector('.content__body-welcome');
 
 if (bodyAuth) {
-	// bodyAuth.onclick = () => {
-	// 	contentWelcome.classList.add('show');
-	// 	contentAuth.classList.add('hide')
-	// 	contentAuth.classList.remove('second')
-	// 	contentWelcome.classList.remove('first')
-	// };
 	bodyAuth.addEventListener('click', () => {
 		contentWelcome.classList.add('show');
 		contentAuth.classList.add('hide')

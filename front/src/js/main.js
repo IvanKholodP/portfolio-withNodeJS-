@@ -9,4 +9,5 @@ import './modules/admin';
 import './modules/skillsProgressBar';
 import './modules/accordion';
 
-import './sendMail/sendMail';
+import './assets/sendMail';
+import './assets/adminBlog';

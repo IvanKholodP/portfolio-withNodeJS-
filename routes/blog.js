@@ -3,9 +3,6 @@ const Blog = require('../models/Blog')
 const router = Router();
 
 
-
-
-
 router.get('/blog', (req, res) => {
 	let obj = {
 		title: 'Blog'

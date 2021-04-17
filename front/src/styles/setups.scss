@@ -24,6 +24,26 @@
 	}
 }
 
+@mixin adminButton {
+	position: relative;
+	width: 180px;
+	background-color: $beige;
+	@include adaptive-font(22, 18);
+	height: 40px;
+	text-align: center;
+	line-height: 33px;
+	border-radius: 20px;
+	text-transform: uppercase;
+	font-weight: 500;
+	box-shadow: 1px 2px 3px #000000c4;
+	transition: background-color 0.3s ease 0s;
+	cursor: pointer;
+	&:hover {
+		background-color: $blue;
+		color: $white;
+	}
+}
+
 %clearfix {
 	&::after {
 		content: "";

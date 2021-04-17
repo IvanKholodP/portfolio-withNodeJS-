@@ -5,6 +5,8 @@ const path = require('path');
 const routeExp = require('./routes/route');
 const works = require('./routes/works');
 const blog = require('./routes/blog');
+const about = require('./routes/about');
+const admin = require('./routes/admin');
 const app = express();
 const configProd = require('./config/production');
 
@@ -13,14 +15,14 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
 
-
-
 app.use(express.static(__dirname + '/front/build'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use(works);
 app.use(blog);
+app.use(about);
+app.use(admin);
 app.use(routeExp);
 
 // 404 catch-all handler (middleware)

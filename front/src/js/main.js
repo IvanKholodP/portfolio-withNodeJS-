@@ -11,3 +11,4 @@ import './modules/accordion';
 
 import './assets/sendMail';
 import './assets/adminBlog';
+import './assets/adminSkills';

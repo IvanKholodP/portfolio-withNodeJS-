@@ -16,34 +16,36 @@ block content
 						.admin_img
 							img(src="./img/admin.jpg", alt="")
 						.tab.tab-1._admin_active 
-							form#admin-about-me.admin-form.admin-about-me
-								fieldset.admin-about-me-box Frontend
-									label(for="skill_html").admin-about-me-label HTML5
-										input(type="number" maxlength="4" placeholder="%")#skill_html5
-									label(for="skill_html").admin-about-me-label CSS3
-										input(type="text" maxlength="3" placeholder="%")#skill_css
-									label(for="skill_html").admin-about-me-label JavaScript
-										input(type="text" maxlength="3" placeholder="%")#skill_js
-									label(for="skill_html").admin-about-me-label SASS
-										input(type="text" maxlength="3" placeholder="%")#skill_sass
-								fieldset.admin-about-me-box Backend
-									label(for="skill_html").admin-about-me-label mySQL
-										input(type="text" maxlength="3" placeholder="%")#skill_html
-									label(for="skill_html").admin-about-me-label Node.js and npm
-										input(type="text" maxlength="3" placeholder="%")#skill_css
-									label(for="skill_html").admin-about-me-label Mongo.db
-										input(type="text" maxlength="3" placeholder="%")#skill_js
-								fieldset.admin-about-me-box Workflow
-									label(for="skill_html").admin-about-me-label Git
-										input(type="text" maxlength="3" placeholder="%")#skill_html
-									label(for="skill_html").admin-about-me-label Webpack
-										input(type="text" maxlength="3" placeholder="%")#skill_css
-									label(for="skill_html").admin-about-me-label Avocode
-										input(type="text" maxlength="3" placeholder="%")#skill_js
-									label(for="skill_html").admin-about-me-label REST API
-										input(type="text" maxlength="3" placeholder="%")#skill_js
-							.admin_save_button 
-								span#admin-about-me__save Зберегти
+							each index in skill
+								form#admin-about-me.admin-form.admin-about-me
+									fieldset.admin-about-me-box Frontend
+										label.admin-about-me-label HTML5
+											input(name="html5" type="number" maxlength="3"  value=`${index.html5}`)
+										label.admin-about-me-label CSS3
+											input(name="css3" type="number" maxlength="3"  value=`${index.css3}`)
+										label.admin-about-me-label JavaScript
+											input(name="js" type="number" maxlength="3"  value=`${index.js}`)
+										label.admin-about-me-label SASS
+											input(name="sass" type="number" maxlength="3"  value=`${index.sass}`)
+									fieldset.admin-about-me-box Backend
+										label.admin-about-me-label mySQL
+											input(name="sql" type="number" maxlength="3"  value=`${index.sql}`)
+										label.admin-about-me-label Node.js and npm
+											input(name="node" type="number" maxlength="3"  value=`${index.node}`)
+										label.admin-about-me-label Mongo.db
+											input(name="mongo" type="number" maxlength="3"  value=`${index.mongo}`)
+									fieldset.admin-about-me-box Workflow
+										label.admin-about-me-label Git
+											input(name="git" type="number" maxlength="3"  value=`${index.git}`)
+										label.admin-about-me-label Webpack
+											input(name="webpack" type="number" maxlength="3"  value=`${index.webpack}`)
+										label.admin-about-me-label Avocode
+											input(name="avocode" type="number" maxlength="3"  value=`${index.avocode}`)
+										label.admin-about-me-label REST API
+											input(name="rest" type="number" maxlength="3"  value=`${index.rest}`)
+									.admin_save_button
+										.status 
+										input(name="" type="submit" value="Добавити")
 						.tab.tab-2 
 							form#admin-blog(action ="" method="POST").admin-form.admin-blog
 								p Добавити запис

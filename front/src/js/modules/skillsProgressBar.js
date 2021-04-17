@@ -12,7 +12,7 @@ if (circles.length > 0) {
 			circle.style.strokeDashoffset = offset;
 		}
 		console.log(circumference)
-		setProgress(99)
+		setProgress(70)
 	})
 }
 

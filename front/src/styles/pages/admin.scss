@@ -78,6 +78,7 @@
 					height: 100%;
 					.admin-form {
 						display: flex;
+						flex-wrap: wrap;
 						.admin-about-me-box {
 							@include adaptive-font(24, 18);
 							font-weight: 500;
@@ -85,6 +86,7 @@
 							flex-direction: column;
 							padding: 0 10% 0 0;
 							flex: 1 0 33.333%;
+							flex-wrap: wrap;
 							.admin-about-me-label {
 								display: flex;
 								justify-content: space-between;
@@ -98,6 +100,12 @@
 									border-radius: 5px;
 									padding: 0 0 0 7px;
 								}
+							}
+						}
+						.admin_save_button {
+							flex: 0 1 100%;
+							input {
+								@include adminButton;
 							}
 						}
 					}
@@ -126,49 +134,8 @@
 						}
 						.admin_save_button {
 							input {
-								position: relative;
-								width: 180px;
-								background-color: $beige;
-								@include adaptive-font(22, 18);
-								height: 40px;
-								text-align: center;
-								line-height: 33px;
-								border-radius: 20px;
-								text-transform: uppercase;
-								font-weight: 500;
-								box-shadow: 1px 2px 3px #000000c4;
-								transition: background-color 0.3s ease 0s;
-								cursor: pointer;
-								&:hover {
-									background-color: $blue;
-									color: $white;
-								}
+								@include adminButton;
 							}
-						}
-					}
-					.admin_save_button {
-						position: relative;
-						width: 180px;
-						background-color: $beige;
-						@include adaptive-font(22, 18);
-						height: 40px;
-						text-align: center;
-						line-height: 37px;
-						border-radius: 20px;
-						text-transform: uppercase;
-						font-weight: 500;
-						box-shadow: 1px 2px 3px #000000c4;
-						transition: background-color 0.3s ease 0s;
-						cursor: pointer;
-						&:hover {
-							background-color: $blue;
-							color: $white;
-						}
-						&:active {
-							position: absolute;
-							left: 50px;
-							bottom: 1px;
-							box-shadow: 0px 2px 0px #000000c4;
 						}
 					}
 				}

@@ -4,7 +4,18 @@ const router = Router();
 
 
 router.get('/about', (req, res) => {
-	res.render('pages/about', { title: 'About' });
+	let obj = {
+		title: 'About'
+	};
+	Object.assign(obj, req.app.locals.settings);
+	//отримуємо дані з бази
+	Skills
+		.find()
+		.then(skill => {
+			// обробляємо шаблон і передаємо його в браузер,передаємо в шаблон
+			Object.assign(obj, { skill: skill });
+			res.render('pages/about', obj);
+		});
 });
 
 router.post('/admin/addskill', async (req, res) => {

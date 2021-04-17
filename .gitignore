@@ -1,4 +1,4 @@
+config/production.json
 node_modules/*
 front/build/*
-/config/production.json
 .env

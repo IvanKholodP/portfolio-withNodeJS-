@@ -41,41 +41,26 @@ block content
 							.about-user-info__text
 								p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, quia.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, quia.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, quia.
 						.about-data__content
-							each index in skill
-								ul.skills
-										li.skills__item Frontend
-											.skill-section
-												ul.skill-section__list
-													li.skills-section__item(data-skill=`${index.html5}`)
-														+circle_svg('HTML5')
-													li.skills-section__item(data-skill=`${index.css3}`)
-														+circle_svg('CSS3')
-													li.skills-section__item(data-skill=`${index.js}`)
-														+circle_svg('JavaScript')
-													li.skills-section__item(data-skill=`${index.sass}`)
-														+circle_svg('SASS')
-										li.skills__item Backend
-											.skill-section
-												ul.skill-section__list
-													li.skills-section__item(data-skill=`${index.sql}`)
-														+circle_svg('Node.js & npm')
-													li.skills-section__item(data-skill=`${index.node}`)
-														+circle_svg('mySQL')
-													li.skills-section__item(data-skill=`${index.mongo}`)
-														+circle_svg('Mongo.db')
-										li.skills__item WorkFlow
-											.skill-section
-												ul.skill-section__list
-													li.skills-section__item(data-skill=`${index.git}`)
-														+circle_svg('Git')
-													li.skills-section__item(data-skill=`${index.webpack}`)
-														+circle_svg('Webpack')
-													li.skills-section__item(data-skill=`${index.avocode}`)
-														+circle_svg('Avocode')
-													li.skills-section__item(data-skill=`${index.rest}`)
-														+circle_svg('REST API')
+							ul.skills
+								li.skills__item Frontend
+									.skill-section
+										ul.skill-section__list
+											each index in addSkillFront
+												li.skills-section__item(data-skill=`${index.persent}`)
+														+circle_svg(`${index.name}`)
+								li.skills__item Backend
+									.skill-section
+										ul.skill-section__list
+											each index in addSkillBack
+												li.skills-section__item(data-skill=`${index.persent}`)
+														+circle_svg(`${index.name}`)
+								li.skills__item WorkFlow
+									.skill-section
+										ul.skill-section__list
+											each index in addSkillWorkFlow
+												li.skills-section__item(data-skill=`${index.persent}`)
+														+circle_svg(`${index.name}`)
 			section.section.maps
 				.block_accordion-map.accordion Карта
 				#map.map
-			//- include ../blocks/contacts.pug
 			include ../blocks/footer.pug

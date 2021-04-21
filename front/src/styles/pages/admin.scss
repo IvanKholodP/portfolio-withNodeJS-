@@ -110,7 +110,8 @@
 						}
 					}
 					.admin-form.admin-blog,
-					.admin-works {
+					.admin-works,
+					.admin-add__skill {
 						display: flex;
 						flex-direction: column;
 						p {
@@ -121,7 +122,8 @@
 						.status {
 							padding: 0 0 10px 0;
 						}
-						input {
+						input,
+						select {
 							margin: 20px 0;
 							height: 40px;
 							width: 400px;
@@ -191,12 +193,6 @@
 							input,
 							textarea {
 								width: 100%;
-							}
-						}
-						.admin_save_button {
-							&:active {
-								left: 30px;
-								bottom: -17px;
 							}
 						}
 					}

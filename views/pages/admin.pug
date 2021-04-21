@@ -12,40 +12,24 @@ block content
 						.tabs_menu-item._admin_active(data-tab-name="tab-1") Про мене
 						.tabs_menu-item(data-tab-name="tab-2") Блог
 						.tabs_menu-item(data-tab-name="tab-3") Мої роботи
+						.tabs_menu-item(data-tab-name="tab-4") Мої скіли
 					.tabs_content 
 						.admin_img
 							img(src="./img/admin.jpg", alt="")
 						.tab.tab-1._admin_active 
-							each index in skill
-								form#admin-about-me.admin-form.admin-about-me
-									fieldset.admin-about-me-box Frontend
-										label.admin-about-me-label HTML5
-											input(name="html5" type="number" maxlength="3"  value=`${index.html5}`)
-										label.admin-about-me-label CSS3
-											input(name="css3" type="number" maxlength="3"  value=`${index.css3}`)
-										label.admin-about-me-label JavaScript
-											input(name="js" type="number" maxlength="3"  value=`${index.js}`)
-										label.admin-about-me-label SASS
-											input(name="sass" type="number" maxlength="3"  value=`${index.sass}`)
-									fieldset.admin-about-me-box Backend
-										label.admin-about-me-label mySQL
-											input(name="sql" type="number" maxlength="3"  value=`${index.sql}`)
-										label.admin-about-me-label Node.js and npm
-											input(name="node" type="number" maxlength="3"  value=`${index.node}`)
-										label.admin-about-me-label Mongo.db
-											input(name="mongo" type="number" maxlength="3"  value=`${index.mongo}`)
-									fieldset.admin-about-me-box Workflow
-										label.admin-about-me-label Git
-											input(name="git" type="number" maxlength="3"  value=`${index.git}`)
-										label.admin-about-me-label Webpack
-											input(name="webpack" type="number" maxlength="3"  value=`${index.webpack}`)
-										label.admin-about-me-label Avocode
-											input(name="avocode" type="number" maxlength="3"  value=`${index.avocode}`)
-										label.admin-about-me-label REST API
-											input(name="rest" type="number" maxlength="3"  value=`${index.rest}`)
-									.admin_save_button
-										.status 
-										input(name="" type="submit" value="Добавити")
+							form#admin-about-me.admin-form.admin-about-me
+								fieldset.admin-about-me-box Frontend
+									each index in addSkillFront
+										label.admin-about-me-label= index.name
+											input(name=`${index.keyname}` type="number" maxlength="3"  value=`${index.persent}`)
+								fieldset.admin-about-me-box Backend
+									each index in addSkillBack
+										label.admin-about-me-label= index.name
+											input(name=`${index.keyname}` type="number" maxlength="3"  value=`${index.persent}`)
+								fieldset.admin-about-me-box Workflow
+									each index in addSkillWorkFlow
+										label.admin-about-me-label= index.name
+											input(name=`${index.keyname}` type="number" maxlength="3"  value=`${index.persent}`)
 						.tab.tab-2 
 							form#admin-blog(action ="" method="POST").admin-form.admin-blog
 								p Добавити запис
@@ -67,3 +51,16 @@ block content
 									input(type="file")#admin-works__project-select-image
 							.admin_save_button 
 								span#admin-works__save Добавити
+						.tab.tab-4
+							form#admin-add__skill.admin-form.admin-add__skill
+								p Добавити запис
+								.status 
+								select(name="skillList")
+									option(value="front") Front
+									option(value="back") Back
+									option(value="workflow") Workflow
+								input(name="name" type="text" placeholder="Назва вміння")
+								input(name="keyname" type="text" placeholder="Назва ключа")
+								input(name="persent" type="number" placeholder="%")
+								.admin_save_button
+									input(name="" type="submit" value="Добавити")

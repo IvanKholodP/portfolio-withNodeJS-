@@ -5,6 +5,7 @@ const formSkill = document.querySelector('#admin-about-me');
 if (formSkill) {
 	formSkill.addEventListener('submit', (e) => {
 		e.preventDefault();
+
 		let data = {
 			html5: formSkill.html5.value,
 			css3: formSkill.css3.value,
@@ -18,7 +19,6 @@ if (formSkill) {
 			avocode: formSkill.avocode.value,
 			rest: formSkill.rest.value
 		}
-		console.log(data)
 		prepareSend('/admin/addskill', formSkill, data);
 	})
 }

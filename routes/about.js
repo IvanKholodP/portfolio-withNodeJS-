@@ -10,6 +10,7 @@ router.get('/about', (req, res) => {
 		title: 'About',
 		...req.app.locals.settings
 	};
+
 	Object.assign(obj, req.app.locals.settings);
 	//отримуємо дані з бази
 	addFront
@@ -35,85 +36,33 @@ router.get('/about', (req, res) => {
 				})
 		})
 });
-// router.get('/about', (req, res) => {
-// 	res.render('pages/about', { title: 'About' });
-// let obj = {
-// 	title: 'About'
-// };
-// Object.assign(obj, req.app.locals.settings);
-//отримуємо дані з бази
-// Skills
-// 	.find()
-// 	.then(skill => {
-// 		// обробляємо шаблон і передаємо його в браузер,передаємо в шаблон
-// 		Object.assign(obj, { skill: skill });
-// 		res.render('pages/about', obj);
-// 	});
-// });
 
-// Skills.find({}).lean().then(function (records) {
-// 	records.forEach(function (record) {
-// 		console.log(record._id);
-// 	});
-// });
+router.post('/adminapi/update_skill', (req, res) => {
+	const data = req.body;
+	const errors = [];
 
-// router.post('/admin/addskill', async (req, res) => {
-// await Skills.
-// await Skills.find({}).lean().then(function (records) {
-// 	records.forEach(function (record) {
-// 		if (record._id) {
+	data.forEach(key => {
+		addFront.updateMany({ keyname: `${key.keyname}` }, {
+			$set: { persent: `${key.persent}` }
+		}, { new: true, multi: true }).catch(error => errors.push(error))
 
-// for (let key in req.body) {
-// 	if (!req.body[key]) delete req.body[key]
-// }
+		addBack.updateMany({ keyname: `${key.keyname}` }, {
+			$set: { persent: `${key.persent}` }
+		}, { new: true, multi: true }).catch(error => errors.push(error))
 
-// Skills.findOneAndUpdate(`${record._id}`, req.body, { new: true }).then(
-// 	//обробляю і відправляю відповідь в браузер
-// 	(i) => {
-// 		return res.json({ status: 'Дані успішно додані' });
-// 	}, e => {
-// 		//якщо є помилки то отримую їх список та передаю в шаблон
-// 		const error = Object
-// 			.keys(e.errors)
-// 			.map(key => e.errors[key].message)
-// 			.join(', ');
-// 		//обробляю шаблон та передаю його в браузер
-// 		res.json({
-// 			status: 'При додаванні даних виникла помилка: ' + error
-// 		});
-// 	});
-// }
+		addWorkFlow.updateMany({ keyname: `${key.keyname}` }, {
+			$set: { persent: `${key.persent}` }
+		}, { new: true, multi: true }).catch(error => errors.push(error))
+	})
 
-/* 
-const skill = new Skills({
-	html5: req.body.html5,
-	css3: req.body.css3,
-	js: req.body.js,
-	sass: req.body.sass,
-	sql: req.body.sql,
-	node: req.body.node,
-	mongo: req.body.mongo,
-	git: req.body.git,
-	webpack: req.body.webpack,
-	avocode: req.body.avocode,
-	rest: req.body.rest
-})
-await skill.save(
-	//обробляю і відправляю відповідь в браузер
-	(i) => {
-		return res.json({ status: 'Дані успішно додані' });
-	}, e => {
-		//якщо є помилки то отримую їх список та передаю в шаблон
-		const error = Object
-			.keys(e.errors)
-			.map(key => e.errors[key].message)
-			.join(', ');
-		//обробляю шаблон та передаю його в браузер
-		res.json({
-			status: 'При додаванні даних виникла помилка: ' + error
+	if (errors.length > 0) {
+		return res.json({
+			status: 'При оновлені даних виникла помилка: ' + error
 		});
-	});
-}); */
+	} else {
+		return res.json({ status: 'Дані успішно оновлені' });
+	}
+})
 
 
 module.exports = router;

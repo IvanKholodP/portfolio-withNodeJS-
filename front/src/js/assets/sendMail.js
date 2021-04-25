@@ -8,11 +8,12 @@ if (formMail) {
 
 function prepareSendMail(e) {
 	e.preventDefault();
+
 	let data = {
 		name: formMail.name.value,
 		email: formMail.email.value,
 		text: formMail.text.value
 	};
-	console.log(data)
-	prepareSend('/works', formMail, data);
+
+	prepareSend('/worksapi/send_mail', formMail, data);
 }

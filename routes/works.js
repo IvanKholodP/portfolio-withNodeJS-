@@ -8,13 +8,13 @@ router.get('/works', (req, res) => {
 	res.render('pages/works', { title: 'Works' });
 });
 
-router.post('/works', (req, res) => {
-	console.log(req.body)
+router.post('/worksapi/send_mail', (req, res) => {
 	//вимагаємо наявності імені, зворотньої пошти та текста повідомлення
 	if (!req.body.name || !req.body.email || !req.body.text) {
 		//якщо щось не вказано - повідомлюємо про це
 		return res.json({ status: 'Введіть дані' });
 	}
+
 	//ініціюємо модуль для відправки повідомлень
 	const transporter = nodemailer.createTransport({
 		service: "gmail",
@@ -39,6 +39,7 @@ router.post('/works', (req, res) => {
 			.trim()
 			.slice(0, 500) + `\n Відправлено з: <${req.body.email}>`
 	};
+
 	//відправляємо пошту
 	transporter.sendMail(mailOptions, (error, info) => {
 		if (error) {

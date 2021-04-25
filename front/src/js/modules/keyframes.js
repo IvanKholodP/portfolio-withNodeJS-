@@ -21,5 +21,3 @@ if (navMenu) {
 		contentAuth.classList.add('second')
 	};
 };
-
-console.log('hello');

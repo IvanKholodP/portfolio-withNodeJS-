@@ -23,6 +23,7 @@ if (blogLinks.length > 0) {
 
 //make an active item of the side menu when scrolling articles
 const activeBlogAside = '_active_blog__aside';
+
 window.addEventListener('scroll', () => {
 	let scrollDistance = window.scrollY;
 
@@ -40,6 +41,7 @@ window.addEventListener('scroll', () => {
 
 //added active class for first element
 const firstActiveClass = document.querySelectorAll('.blog_aside__link')
+
 if (firstActiveClass.length > 0) {
 	firstActiveClass[0].classList.add(activeBlogAside)
 }

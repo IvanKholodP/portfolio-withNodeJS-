@@ -9,6 +9,7 @@ router.get('/admin', (req, res) => {
 		title: 'Admin',
 		...req.app.locals.settings
 	};
+
 	//отримуємо дані з бази
 	addFront
 		.find({})
@@ -34,18 +35,25 @@ router.get('/admin', (req, res) => {
 		})
 });
 
-async function saveData(schema, req, res) {
+function saveData(schema, req, res) {
+	//вимагаємо наявності розділу, імені, ключа та відсотку вміння
+	if (!req.body.chapter || !req.body.name || !req.body.keyname || !req.body.persent) {
+		//якщо щось не вказано - повідомлюємо про це
+		return res.json({ status: 'Вкажіть дані!' });
+	}
+
 	const colection = new schema({
 		chapter: req.body.chapter,
 		name: req.body.name,
 		keyname: req.body.keyname,
 		persent: req.body.persent
 	})
-	return colection.save(
+
+	return colection.save().then(
 		//обробляю і відправляю відповідь в браузер
-		(i) => {
+		() => {
 			return res.json({ status: 'Дані успішно додані' });
-		}, e => {
+		}).catch(e => {
 			//якщо є помилки то отримую їх список та передаю в шаблон
 			const error = Object
 				.keys(e.errors)
@@ -57,12 +65,6 @@ async function saveData(schema, req, res) {
 			});
 		});
 }
-
-addFront.find({}).lean().then(function (records) {
-	records.forEach(function (record) {
-		console.log(record.name);
-	});
-});
 
 router.post('/adminapi/add_skill_front', (req, res) => saveData(addFront, req, res));
 router.post('/adminapi/add_skill_back', (req, res) => saveData(addBack, req, res));

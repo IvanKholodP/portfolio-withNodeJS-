@@ -18,18 +18,23 @@ block content
 							img(src="./img/admin.jpg", alt="")
 						.tab.tab-1._admin_active 
 							form#admin-about-me.admin-form.admin-about-me
-								fieldset.admin-about-me-box Frontend
-									each index in addSkillFront
-										label.admin-about-me-label= index.name
-											input(name=`${index.keyname}` type="number" maxlength="3"  value=`${index.persent}`)
-								fieldset.admin-about-me-box Backend
-									each index in addSkillBack
-										label.admin-about-me-label= index.name
-											input(name=`${index.keyname}` type="number" maxlength="3"  value=`${index.persent}`)
-								fieldset.admin-about-me-box Workflow
-									each index in addSkillWorkFlow
-										label.admin-about-me-label= index.name
-											input(name=`${index.keyname}` type="number" maxlength="3"  value=`${index.persent}`)
+								p Оновити запис
+								.status 
+								.data-form
+									fieldset.admin-about-me-box Frontend
+										each index in addSkillFront
+											label.admin-about-me-label= index.name
+												input(name=`${index.keyname}` type="number" maxlength="3"  value=`${index.persent}`)
+									fieldset.admin-about-me-box Backend
+										each index in addSkillBack
+											label.admin-about-me-label= index.name
+												input(name=`${index.keyname}` type="number" maxlength="3"  value=`${index.persent}`)
+									fieldset.admin-about-me-box Workflow
+										each index in addSkillWorkFlow
+											label.admin-about-me-label= index.name
+												input(name=`${index.keyname}` type="number" maxlength="3"  value=`${index.persent}`)
+								.admin_save_button
+									input(name="" type="submit" value="Добавити")
 						.tab.tab-2 
 							form#admin-blog(action ="" method="POST").admin-form.admin-blog
 								p Добавити запис

@@ -78,27 +78,38 @@
 					height: 100%;
 					.admin-form {
 						display: flex;
-						flex-wrap: wrap;
-						.admin-about-me-box {
-							@include adaptive-font(24, 18);
+						flex-direction: column;
+						p {
+							@include adaptive-font(28, 18);
 							font-weight: 500;
+							padding: 5px 0;
+						}
+						.status {
+							padding: 0 0 10px 0;
+						}
+						.data-form {
 							display: flex;
-							flex-direction: column;
-							padding: 0 10% 0 0;
-							flex: 1 0 33.333%;
-							flex-wrap: wrap;
-							.admin-about-me-label {
+							flex-direction: row;
+							.admin-about-me-box {
+								@include adaptive-font(24, 18);
+								font-weight: 500;
 								display: flex;
-								justify-content: space-between;
-								@include adaptive-font(20, 16);
-								font-weight: 400;
-								padding: 20px 0;
-								position: relative;
-								input {
-									width: 40px;
-									height: 20px;
-									border-radius: 5px;
-									padding: 0 0 0 7px;
+								flex-direction: column;
+								padding: 0 10% 0 0;
+								flex: 1 0 33.333%;
+								.admin-about-me-label {
+									display: flex;
+									justify-content: space-between;
+									@include adaptive-font(20, 16);
+									font-weight: 400;
+									padding: 20px 0;
+									position: relative;
+									input {
+										width: 40px;
+										height: 20px;
+										border-radius: 5px;
+										padding: 0 0 0 7px;
+									}
 								}
 							}
 						}

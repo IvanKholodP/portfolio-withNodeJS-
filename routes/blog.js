@@ -24,17 +24,19 @@ router.post('/admin/addarticle', async (req, res) => {
 		//якщо щось не вказано - повідомлюємо про це
 		return res.json({ status: 'Вкажіть дані!' });
 	}
+
 	const blog = new Blog({
 		list: req.body.list,
 		title: req.body.title,
 		date: req.body.date,
 		text: req.body.text
 	})
+
 	await blog.save().then(
 		//обробляю і відправляю відповідь в браузер
-		(i) => {
+		() => {
 			return res.json({ status: 'Стаття успішно додана' });
-		}, e => {
+		}).catch(e => {
 			//якщо є помилки то отримую їх список та передаю в шаблон
 			const error = Object
 				.keys(e.errors)

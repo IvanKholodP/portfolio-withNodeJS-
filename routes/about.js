@@ -37,7 +37,7 @@ router.get('/about', (req, res) => {
 		})
 });
 
-router.post('/adminapi/update_skill', (req, res) => {
+router.put('/adminapi/update_skill', (req, res) => {
 	const data = req.body;
 	const errors = [];
 

@@ -22,6 +22,6 @@ if (formSkill) {
 				})
 			}
 		}
-		prepareSend('/adminapi/update_skill', formSkill, data);
+		prepareSend('/adminapi/update_skill', formSkill, data, 'PUT');
 	})
 };

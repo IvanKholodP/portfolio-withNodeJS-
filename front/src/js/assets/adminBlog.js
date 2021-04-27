@@ -13,6 +13,6 @@ if (formBlog) {
 			date: formBlog.date.value,
 			text: formBlog.text.value
 		};
-		prepareSend('/admin/addarticle', formBlog, data);
+		prepareSend('/admin/addarticle', formBlog, data, 'POST');
 	}
 }

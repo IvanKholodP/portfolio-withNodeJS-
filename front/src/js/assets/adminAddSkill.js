@@ -14,11 +14,11 @@ if (addskill) {
 		}
 
 		if (data.chapter == "front") {
-			prepareSend('/adminapi/add_skill_front', addskill, data);
+			prepareSend('/adminapi/add_skill_front', addskill, data, 'POST');
 		} else if (data.chapter == "back") {
-			prepareSend('/adminapi/add_skill_back', addskill, data);
+			prepareSend('/adminapi/add_skill_back', addskill, data, 'POST');
 		} else {
-			prepareSend('/adminapi/add_skill_workflow', addskill, data);
+			prepareSend('/adminapi/add_skill_workflow', addskill, data, 'POST');
 		}
 	})
 }

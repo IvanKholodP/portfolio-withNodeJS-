@@ -9,11 +9,11 @@ if (formMail) {
 function prepareSendMail(e) {
 	e.preventDefault();
 
-	let data = {
+	const data = {
 		name: formMail.name.value,
 		email: formMail.email.value,
 		text: formMail.text.value
 	};
 
-	prepareSend('/worksapi/send_mail', formMail, data);
+	prepareSend('/worksapi/send_mail', formMail, data, 'POST');
 }

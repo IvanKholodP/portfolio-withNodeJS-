@@ -1,16 +1,17 @@
 .content__body-auth
 	.auth__label Авторизуйтесь
-	form(action="admin" class="form" method="post")
+	form#form-auth(action="" class="form" method="post")
+		.status
 		.form__item
-			label(for="userName" class="form__label")
+			label(for="login" class="form__label")
 			.user__login-img
 				img(src="./img/user_login.png")
-			input(type="text" id="userName" name="name" placeholder="Логін" class="form__input")
+			input(type="text" id="login" name="login" placeholder="Логін" class="form__input")
 		.form__item
-			label(for="userPassword" class="form__label")
+			label(for="password" class="form__label")
 			.user__login-parol
 				img(src="./img/user_parol.png")
-			input(type="password" id="userPassword" name="password" placeholder="Пароль" class="form__input")
+			input(type="password" id="password" name="password" placeholder="Пароль" class="form__input")
 		.form__item
 			.checkbox
 				input(type="checkbox" name="check" id="formCheck" class="checkbox__input")
@@ -18,15 +19,14 @@
 		.form__item
 			.radiotitle Ви точно не робот?
 			.radiobox
-				input(type="radio" name="radio" id="formRadio1" class="radio__input" checked)
+				input(type="radio" name="radio" id="formRadio1" class="radio__input" value="true")
 				label(for="formRadio1" class="checkbox__label") Так
 			.radiobox
-				input(type="radio" name="radio" id="formRadio2" class="radio__input")
+				input(type="radio" name="radio" id="formRadio2" class="radio__input" value="false" checked)
 				label(for="formRadio2" class="checkbox__label") Робот
-	.auth__menu
-		ul.nav-menu
-			//- each name, link in {'welcome.html': 'На головну', 'admin.html': 'Вхід'}
-			li.nav-menu__list
-				input(name="" type="submit" value="На головну").nav-menu__link.link__back-home 
-			li.nav-menu__list
-				input(name="" type="submit" value="Вхід").nav-menu__link
+		.auth__menu
+			ul.nav-menu
+				li.nav-menu__list
+					.nav-menu__link.link__back-home На головну
+				li.nav-menu__list
+					input(name="" type="submit" value="Вхід").nav-menu__link

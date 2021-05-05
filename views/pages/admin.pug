@@ -5,8 +5,8 @@ block content
 			main.admin_content
 				header.header_admin 
 					.admin_title Панель адміністрування
-					.admin_backHome
-						a(href="/") Повернутися на сайт 
+					form(action="/logout" method="POST").admin_backHome
+						button Повернутися на сайт 
 				section.content_tabs
 					.tabs_menu
 						.tabs_menu-item._admin_active(data-tab-name="tab-1") Про мене
@@ -34,7 +34,7 @@ block content
 											label.admin-about-me-label= index.name
 												input(name=`${index.keyname}` type="number" maxlength="3"  value=`${index.persent}`)
 								.admin_save_button
-									input(name="" type="submit" value="Добавити")
+									input(name="" type="submit" value="Оновити")
 						.tab.tab-2 
 							form#admin-blog(action ="" method="POST").admin-form.admin-blog
 								p Добавити запис

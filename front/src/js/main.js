@@ -13,3 +13,4 @@ import './assets/sendMail';
 import './assets/adminBlog';
 import './assets/adminUpdateSkills';
 import './assets/adminAddSkill';
+import './assets/authUser';

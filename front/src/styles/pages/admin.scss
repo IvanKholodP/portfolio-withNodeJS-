@@ -24,10 +24,11 @@
 				@include adaptive-font(36, 18);
 			}
 			.admin_backHome {
-				@include adaptive-font(20, 14);
-				a {
+				button {
+					background-color: transparent;
 					text-decoration: underline;
 					color: $white;
+					@include adaptive-font(20, 14);
 				}
 			}
 		}

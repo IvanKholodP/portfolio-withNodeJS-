@@ -1,14 +1,17 @@
 const express = require('express');
+const session = require('express-session');
 const config = require('config');
 const mongoose = require('mongoose');
+const MongoDBStore = require('connect-mongodb-session')(session);
 const path = require('path');
-const routeExp = require('./routes/route');
+const welcome = require('./routes/welcome');
 const works = require('./routes/works');
 const blog = require('./routes/blog');
 const about = require('./routes/about');
 const admin = require('./routes/admin');
-const app = express();
 const configProd = require('./config/production');
+const app = express();
+
 
 
 app.set('views', path.join(__dirname, 'views'));
@@ -19,11 +22,26 @@ app.use(express.static(__dirname + '/front/build'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+const store = new MongoDBStore({
+	uri: configProd.mongoUrl,
+	collection: 'mySessions'
+});
+
+app.use(session({
+	secret: configProd.secret,
+	resave: false,
+	saveUninitialized: false,
+	cookie: {
+		maxAge: 1000 * 60 * 60  // 1 hour
+	},
+	store: store,
+}))
+
 app.use(works);
 app.use(blog);
 app.use(about);
 app.use(admin);
-app.use(routeExp);
+app.use(welcome);
 
 // 404 catch-all handler (middleware)
 app.use((req, res, next) => {

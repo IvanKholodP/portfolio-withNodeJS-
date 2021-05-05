@@ -1,13 +1,13 @@
 import sendAjaxJson from './sendAjax';
 
-export default function prepareSend(url, form, data, method, cb) {
+export default async function prepareSend(url, form, data, method) {
 	let resultContainer = form.querySelector('.status');
 	resultContainer.innerHTML = 'Відправка...';
-	sendAjaxJson(url, data, method, function (data) {
-		form.reset();
-		resultContainer.innerHTML = data;
-		if (cb) {
-			cb(data);
-		}
-	});
+
+	const result = await sendAjaxJson(url, data, method);
+
+	form.reset();
+	resultContainer.innerHTML = result.data.message;
+
+	return result
 }

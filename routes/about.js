@@ -57,7 +57,7 @@ router.put('/adminapi/update_skill', async (req, res) => {
 		addWorkFlow.updateMany({ keyname: `${key.keyname}` }, {
 			$set: { persent: `${key.persent}` }
 		}, { new: true, multi: true }).catch(error => errors.push(error))
-	})
+	});
 
 	if (errors.length > 0) {
 		return res.json({

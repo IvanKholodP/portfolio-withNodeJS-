@@ -10,6 +10,13 @@ block content
 				include ../blocks/triangle.pug
 				+title ('Мої роботи', 'vector_about.png', 'works__section-title')
 				.slider__works
+					ul.slider__container
+						each index in items
+							li.mySlides
+								img(src=`${index.imageSrc}`, alt="").slider__img
+								a(href=`${index.name}` target="_blank").slider__link= index.name
+					button.prevSlide &#10094
+					button.nextSlide &#10095
 				.works__footer(style="background-image: url('img/footer.png')")
 					include ../blocks/contacts.pug
 					include ../blocks/footer.pug

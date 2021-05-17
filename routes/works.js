@@ -1,12 +1,27 @@
 const { Router } = require('express');
+const upload = require('../middleware/upload');
 const Message = require('../models/Message');
+const Picture = require('../models/Picture');
 const router = Router();
 const nodemailer = require('nodemailer');
 const config = require('../config/production');
 
 
-router.get('/works', (req, res) => {
-	res.render('pages/works', { title: 'Works' });
+router.get('/works', async (req, res) => {
+	try {
+		let obj = {
+			title: 'Works'
+		};
+		Object.assign(obj, req.app.locals.settings);
+		await Picture
+			.find({})
+			.then(items => {
+				Object.assign(obj, { items });
+				res.render('pages/works', obj);
+			});
+	} catch (e) {
+		res.status(500).json({ message: 'Щось пішло не так: ' + e });
+	}
 });
 
 router.post('/worksapi/send_mail', async (req, res) => {
@@ -63,5 +78,38 @@ router.post('/worksapi/send_mail', async (req, res) => {
 	};
 });
 
+router.post('/worksapi/addslider', upload.single('slideImage'), async (req, res) => {
+	try {
+		if (!req.body.link || !req.file) {
+			//якщо щось не вказано - повідомлюємо про це
+			return res.json({ message: 'Введіть дані' });
+		};
+		const slider = new Picture({
+			name: req.body.link,
+			imageSrc: req.file.path
+		});
+
+		await slider.save();
+
+		res.json({ message: 'Слайд успішно добавлено' });
+	} catch (e) {
+		res.json({ message: 'Щось пішло не так, спробуйте ще раз' });
+	};
+});
+
+router.delete('/worksapi/removeslider', async (req, res) => {
+	try {
+		if (req.body.name == "false") {
+			return res.json({ message: 'Виберіть роботу' });
+		};
+		const sliderId = req.body.name;
+
+		await Picture.deleteOne({ _id: sliderId });
+
+		res.json({ message: 'Слайд успішно видалено' });
+	} catch (e) {
+		res.json({ message: 'Щось пішло не так, спробуйте ще раз' });
+	};
+});
 
 module.exports = router;

@@ -22,7 +22,7 @@ router.get('/blog', async (req, res) => {
 	}
 });
 
-router.post('/admin/addarticle', async (req, res) => {
+router.post('/adminapi/addarticle', async (req, res) => {
 	try {
 		//вимагаємо наявності номера, заголовка, дати та вмісту статті
 		if (!req.body.list || !req.body.title || !req.body.date || !req.body.text) {
@@ -44,4 +44,21 @@ router.post('/admin/addarticle', async (req, res) => {
 		res.status(500).json({ message: 'При додаванні статті виникла помилка: ' + error });
 	};
 });
+
+router.delete('/adminapi/removearticle', async (req, res) => {
+	try {
+		if (req.body.id == "false") {
+			return res.json({ message: 'Виберіть статтю' });
+		};
+		const blogId = req.body.id;
+
+		await Blog.deleteOne({ _id: blogId });
+
+		res.json({ message: 'Стаття успішно видалена' });
+	} catch (e) {
+		res.status(500).json({ message: 'При видаленні даних виникла помилка: ' + e });
+	};
+});
+
+
 module.exports = router;

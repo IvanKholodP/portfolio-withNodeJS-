@@ -1,6 +1,7 @@
 .works {
 	width: 100%;
 	position: relative;
+	background-color: $white;
 	.title {
 		@include adaptive-font(63, 24);
 		line-height: 66px;
@@ -10,7 +11,6 @@
 		text-align: center;
 		padding: 25px 0;
 		position: relative;
-		background-color: $white;
 		background-size: contain;
 		background-position: 50% 50%;
 		background-repeat: no-repeat;
@@ -18,20 +18,59 @@
 		margin: 80px 0 0 0 0;
 	}
 	.slider__works {
-		height: 600px;
-		background-color: aquamarine;
-	}
-	.works__footer {
+		max-width: 90%;
+		margin: 0 auto;
 		position: relative;
-		width: 100%;
-		background-size: 100% 100%;
-		display: flex;
-		flex-direction: column;
-		.footer {
-			width: 100%;
-			#footer__block {
-				background-color: transparent;
+		overflow: hidden;
+		.slider__container {
+			display: flex;
+			transition: all ease;
+			.mySlides {
+				.slider__img {
+					width: 100%;
+					object-fit: fill;
+				}
+				.slider__link {
+					display: flex;
+					justify-content: center;
+					@include adaptive-font(24, 16);
+				}
 			}
+		}
+	}
+	.prevSlide,
+	.nextSlide {
+		position: absolute;
+		top: 50%;
+		color: black;
+		background-color: rgba(0, 0, 0, 0);
+		width: auto;
+		font-weight: 700;
+		@include adaptive-font(36, 20);
+		padding: 16px;
+		margin: -22px 0 0 0;
+		transition: 0.5s ease;
+		border-radius: 0 3px 3px 0;
+	}
+	.nextSlide {
+		right: 0;
+		border-radius: 3px 0 0 3px;
+	}
+	.prevSlide:hover,
+	.nextSlide:hover {
+		background-color: rgba(0, 0, 0, 0.3);
+	}
+}
+.works__footer {
+	position: relative;
+	width: 100%;
+	background-size: 100% 100%;
+	display: flex;
+	flex-direction: column;
+	.footer {
+		width: 100%;
+		#footer__block {
+			background-color: transparent;
 		}
 	}
 }

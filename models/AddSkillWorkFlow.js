@@ -5,6 +5,6 @@ const addWorkFlow = new Schema({
 	name: String,
 	keyname: String,
 	persent: Number
-})
+});
 
-module.exports = model('AddSkillWorkFlow', addWorkFlow)
+module.exports = model('AddSkillWorkFlow', addWorkFlow);

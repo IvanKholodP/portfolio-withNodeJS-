@@ -20,5 +20,18 @@ if (addskill) {
 		} else {
 			prepareSend('/adminapi/add_skill_workflow', addskill, data, 'POST');
 		}
-	})
-}
+	});
+};
+
+const removeSkill = document.querySelector('#admin-remove__skill');
+
+if (removeSkill) {
+	removeSkill.addEventListener('submit', (e) => {
+		e.preventDefault();
+
+		const data = {
+			id: removeSkill.skillName.value
+		};
+		prepareSend('/adminapi/remove_skill', removeSkill, data, 'DELETE');
+	});
+};

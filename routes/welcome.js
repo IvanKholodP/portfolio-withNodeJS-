@@ -59,7 +59,7 @@ router.post('/authapi/authentication', [
 		.isLength({ min: 5 })
 ], async (req, res) => {
 	try {
-		const errors = validationResult(req)
+		const errors = validationResult(req);
 
 		if (!errors.isEmpty()) {
 			return res.json({ message: 'Мінімальна довжина логіна та пароля 5 символів' })
@@ -70,19 +70,19 @@ router.post('/authapi/authentication', [
 		const admin = await User.findOne({ login });
 		if (!admin) {
 			return res.json({ message: "Користувача з даним логіном не існує" });
-		}
+		};
 
 		const isMatch = await bcrypt.compare(password, admin.password);
 
 		if (!isMatch) {
 			return res.json({ message: "Дані введено не вірно", status: false });
-		}
+		};
 		req.session.isAuth = true;
-		console.log(req.session)
+
 		res.json({ path: '/admin', message: "Вітаю", status: true })
 	} catch (e) {
 		res.status(500).json({ message: 'Щось пішло не так, спробуйте знову' })
-	}
-})
+	};
+});
 
 module.exports = router;

@@ -17,6 +17,6 @@ const blogSchema = new Schema({
 		type: String,
 		required: [true, 'Вкажіть вміст статті']
 	}
-})
+});
 
 module.exports = model('Blog', blogSchema);

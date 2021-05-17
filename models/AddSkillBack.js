@@ -5,6 +5,6 @@ const addBack = new Schema({
 	name: String,
 	keyname: String,
 	persent: Number
-})
+});
 
-module.exports = model('AddSkillBack', addBack)
+module.exports = model('AddSkillBack', addBack);

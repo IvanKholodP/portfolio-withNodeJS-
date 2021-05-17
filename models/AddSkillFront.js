@@ -5,6 +5,6 @@ const addFront = new Schema({
 	name: String,
 	keyname: String,
 	persent: Number
-})
+});
 
-module.exports = model('AddSkillFront', addFront)
+module.exports = model('AddSkillFront', addFront);

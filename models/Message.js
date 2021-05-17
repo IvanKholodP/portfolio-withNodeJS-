@@ -5,6 +5,6 @@ const addMessage = new Schema({
 	email: String,
 	body: String,
 	date: Date
-})
+});
 
-module.exports = model('Message', addMessage)
+module.exports = model('Message', addMessage);

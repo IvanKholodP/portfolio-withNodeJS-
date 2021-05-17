@@ -1,8 +1,10 @@
 const { Router } = require('express');
+const Blog = require('../models/Blog')
 const addFront = require('../models/AddSkillFront');
 const addBack = require('../models/AddSkillBack');
 const addWorkFlow = require('../models/AddSkillWorkFlow');
 const isAuth = require('../middleware/isAuth');
+const Picture = require('../models/Picture');
 const router = Router();
 
 router.get('/admin', isAuth, async (req, res) => {
@@ -17,21 +19,36 @@ router.get('/admin', isAuth, async (req, res) => {
 			.find({})
 			.then(addSkillFront => {
 				// обробляємо шаблон і передаємо його в браузер,передаємо в шаблон
-				Object.assign(obj, { addSkillFront: addSkillFront });
+				Object.assign(obj, { addSkillFront });
 				return addSkillFront;
 			}).then(addSkillFront => {
 				addBack
 					.find({})
 					.then(addSkillBack => {
 						// обробляємо шаблон і передаємо його в браузер,передаємо в шаблон
-						Object.assign(obj, { addSkillBack: addSkillBack });
+						Object.assign(obj, { addSkillBack });
 						return addSkillBack
 					}).then(addSkillBack => {
 						addWorkFlow
 							.find({})
 							.then(addSkillWorkFlow => {
-								Object.assign(obj, { addSkillWorkFlow: addSkillWorkFlow });
-								res.render('pages/admin', obj);
+								Object.assign(obj, { addSkillWorkFlow });
+								return addSkillWorkFlow
+							}).then(addSkillWorkFlow => {
+								Blog
+									.find({})
+									.then(Blog => {
+										// обробляємо шаблон і передаємо його в браузер,передаємо в шаблон список записів в блозі
+										Object.assign(obj, { Blog });
+										return Blog
+									}).then(Blog => {
+										Picture
+											.find({})
+											.then(Picture => {
+												Object.assign(obj, { Picture });
+												res.render('pages/admin', obj);
+											});
+									});
 							});
 					});
 			});
@@ -43,10 +60,10 @@ router.get('/admin', isAuth, async (req, res) => {
 async function saveData(schema, req, res) {
 	try {
 		//вимагаємо наявності розділу, імені, ключа та відсотку вміння
-		if (!req.body.chapter || !req.body.name || !req.body.keyname || !req.body.persent) {
+		if (req.body.chapter == "false" || !req.body.name || !req.body.keyname || !req.body.persent) {
 			//якщо щось не вказано - повідомлюємо про це
-			return res.json({ message: 'Вкажіть дані!' });
-		}
+			return res.json({ message: 'Виберіть дані!' });
+		};
 
 		const colection = new schema({
 			chapter: req.body.chapter,
@@ -74,5 +91,23 @@ router.post('/logout', (req, res) => {
 	});
 });
 
+router.delete('/adminapi/remove_skill', async (req, res) => {
+	try {
+		if (req.body.id === "false") {
+			return res.json({ message: 'Виберіть вміння!' });
+		};
+		const skillId = req.body.id;
+
+		await addFront.deleteOne({ _id: skillId });
+
+		await addBack.deleteOne({ _id: skillId });
+
+		await addWorkFlow.deleteOne({ _id: skillId });
+
+		res.json({ message: 'Вміння успішно видалено' });
+	} catch (e) {
+		res.status(500).json({ message: 'При видаленні вміння виникла помилка: ' + e });
+	}
+})
 
 module.exports = router;

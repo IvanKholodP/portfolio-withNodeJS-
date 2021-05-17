@@ -18,7 +18,7 @@ block content
 							img(src="./img/admin.jpg", alt="")
 						.tab.tab-1._admin_active 
 							form#admin-about-me.admin-form.admin-about-me
-								p Оновити запис
+								p Оновити рівень скіла
 								.status 
 								.data-form
 									fieldset.admin-about-me-box Frontend
@@ -34,38 +34,75 @@ block content
 											label.admin-about-me-label= index.name
 												input(name=`${index.keyname}` type="number" maxlength="3"  value=`${index.persent}`)
 								.admin_save_button
-									input(name="" type="submit" value="Оновити")
-						.tab.tab-2 
-							form#admin-blog(action ="" method="POST").admin-form.admin-blog
-								p Добавити запис
-								.status 
-								input(name="list" type="number" placeholder="Номер статті")#admin-blog__article-list
-								input(name="title" type="text" placeholder="Назва")#admin-blog__article-title
-								input(name="date" type="text" placeholder="Дата")#admin-blog__article-data
-								textarea(name="text" rows="8" cols="50" placeholder="Зміст")#admin-blog__article-content
-								.admin_save_button
-									input(name="" type="submit" value="Добавити")
+									input(type="submit" value="Оновити")
+						.tab.tab-2
+							.data-form 
+								form#admin-blog-add(action ="" method="POST").admin-form.admin-blog
+									p Добавити статтю
+									.status 
+									input(name="list" type="number" placeholder="Номер статті")
+									input(name="title" type="text" placeholder="Назва")
+									input(name="date" type="text" placeholder="Дата")
+									textarea(name="text" rows="8" cols="50" placeholder="Зміст")
+									.admin_save_button
+										input(type="submit" value="Добавити")
+								form#admin-blog-remove(action ="" method="POST").admin-form.admin-blog
+									p Видалити статтю
+									.status 
+									select(name="bloglist")
+										option(disabled selected value="false") Виберіть статтю 
+										each index in Blog
+											option(value=`${index.id}`)= `${index.list}: ${index.title}`
+									.admin_save_button
+										input(type="submit" value="Видалити")
 						.tab.tab-3
-							form#admin-works.admin-form.admin-works
-								p Добавити Роботу
-								input(type="text" placeholder="Назва проекта")#admin-works__project-title
-								input(type="text" placeholder="Технології")#admin-works__project-technologies
-								input(type="text" placeholder="Посилання")#admin-works__project-link
-								p
-									label.admin-works__project-select-image Вибрати зображення
-									input(type="file")#admin-works__project-select-image
-							.admin_save_button 
-								span#admin-works__save Добавити
+							.data-form
+								form#admin-works-add(action ="" method="POST" enctype="multipart/form-data").admin-form.admin-works
+									p Добавити роботу
+									.status 
+									input(type="text" name="link" placeholder="Посилання")#file-link
+									p
+										label.admin-works__project-select-image Вибрати зображення
+										input(type="file" name="slideImage" accept=".jpg, .jpeg, .png")#file-select
+									.admin_save_button 
+										input(type="submit" value="Добавити")
+								form#admin-works-remove(action ="" method="POST").admin-form.admin-works
+									p Видалити роботу
+									.status 
+									select(name="sliderList")
+										option(disabled selected value="false") Виберіть роботу 
+										each index in Picture 
+											option(value=`${index.id}`)= index.name 
+									.admin_save_button 
+										input(type="submit" value="Видалити")
 						.tab.tab-4
-							form#admin-add__skill.admin-form.admin-add__skill
-								p Добавити запис
-								.status 
-								select(name="skillList")
-									option(value="front") Front
-									option(value="back") Back
-									option(value="workflow") Workflow
-								input(name="name" type="text" placeholder="Назва вміння")
-								input(name="keyname" type="text" placeholder="Назва ключа")
-								input(name="persent" type="number" placeholder="%")
-								.admin_save_button
-									input(name="" type="submit" value="Добавити")
+							.data-form
+								form#admin-add__skill.admin-form.admin-skill
+									p Добавити вміння
+									.status 
+									select(name="skillList")
+										option(disabled selected value="false") Виберіть вміння 
+										option(value="front") Front
+										option(value="back") Back
+										option(value="workflow") Workflow
+									input(name="name" type="text" placeholder="Назва вміння")
+									input(name="keyname" type="text" placeholder="Назва ключа")
+									input(name="persent" type="number" placeholder="%")
+									.admin_save_button
+										input(type="submit" value="Добавити")
+								form#admin-remove__skill.admin-form.admin-skill
+									p Видалити вміння
+									.status 
+									select(name="skillName" )
+										option(disabled selected value="false") Виберіть вміння 
+										optgroup(label="front") 
+											each index in addSkillFront
+												option(value=`${index.id}`)= index.name
+										optgroup(label="back") 
+											each index in addSkillBack
+												option(value=`${index.id}`)= index.name
+										optgroup(label="workflow") 
+											each index in addSkillWorkFlow
+												option(value=`${index.id}`)= index.name
+									.admin_save_button
+										input(type="submit" value="Видалити")

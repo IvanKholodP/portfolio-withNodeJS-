@@ -17,14 +17,10 @@
 	}
 }
 .hide {
-	transition-delay: 0.5s;
 	animation-name: outside;
-	animation-duration: 0.5s;
-	animation-timing-function: linear;
-	transform: rotateY(0deg);
 	animation-delay: 0.5s;
-	transform-style: preserve-3d;
 	visibility: visible;
+	@include keyframes;
 }
 @keyframes outside {
 	0% {
@@ -35,12 +31,8 @@
 	}
 }
 .second {
-	transition-delay: 0.5s;
 	animation-name: second;
-	animation-duration: 0.5s;
-	animation-timing-function: linear;
-	transform: rotateY(0deg);
-	transform-style: preserve-3d;
+	@include keyframes;
 }
 @keyframes second {
 	0% {
@@ -53,13 +45,9 @@
 	}
 }
 .first {
-	transition-delay: 0.5s;
 	animation-name: first;
-	animation-duration: 0.5s;
-	animation-timing-function: linear;
-	transform: rotateY(0deg);
+	@include keyframes;
 	animation-delay: 0.5s;
-	transform-style: preserve-3d;
 }
 @keyframes first {
 	0% {

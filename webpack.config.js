@@ -63,6 +63,16 @@ module.exports = {
 			{
 				test: /\.(jpg|png|svg)$/,
 				use: ['file-loader']
+			},
+			{
+				test: /\.m?js$/,
+				exclude: /node_modules/,
+				loader: {
+					loader: 'babel-loader',
+					options: {
+						presets: ['@babel/preset-env']
+					}
+				}
 			}
 		]
 	}

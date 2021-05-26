@@ -1,4 +1,3 @@
-'use strict';
 let bodyAuth = document.querySelector('.content__auth');
 let navMenu = document.querySelector('.link__back-home');
 let contentAuth = document.querySelector('.content__body-auth');
@@ -10,14 +9,14 @@ if (bodyAuth) {
 		contentAuth.classList.add('hide')
 		contentAuth.classList.remove('second')
 		contentWelcome.classList.remove('first')
-	})
+	});
 };
 
 if (navMenu) {
-	navMenu.onclick = () => {
+	navMenu.addEventListener('click', () => {
 		contentAuth.classList.remove('hide')
 		contentWelcome.classList.remove('show')
 		contentWelcome.classList.add('first')
 		contentAuth.classList.add('second')
-	};
+	});
 };

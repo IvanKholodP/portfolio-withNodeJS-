@@ -24,6 +24,9 @@
 	}
 }
 
+// @mixin display($value: ) {
+// }
+
 @mixin adminButton {
 	position: relative;
 	width: 180px;
@@ -42,6 +45,27 @@
 		background-color: $blue;
 		color: $white;
 	}
+}
+
+@mixin title {
+	@include adaptive-font(63, 24);
+	line-height: 66px;
+	text-transform: uppercase;
+	color: $main-color;
+	font-weight: 500;
+	text-align: center;
+	position: relative;
+	background-size: contain;
+	background-position: 50% 50%;
+	background-repeat: no-repeat;
+}
+
+@mixin keyframes {
+	transition-delay: 0.5s;
+	animation-duration: 0.5s;
+	animation-timing-function: linear;
+	transform: rotateY(0deg);
+	transform-style: preserve-3d;
 }
 
 %clearfix {

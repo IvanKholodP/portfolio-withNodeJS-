@@ -57,7 +57,7 @@ app.use((err, req, res, next) => {
 	res.render('500');
 });
 
-const PORT = config.get('port') || 3000;
+const PORT = process.env.PORT || 3000;
 
 async function start() {
 	try {

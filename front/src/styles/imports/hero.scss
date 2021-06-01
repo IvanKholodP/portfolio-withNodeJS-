@@ -31,21 +31,21 @@
 			@include stance();
 			.user__photo-img {
 				border-radius: 50%;
-				width: 140px;
-				height: 140px;
+				width: 160px;
+				height: 160px;
 				object-fit: cover;
 				.user__photo-img img {
 					max-width: 100%;
 				}
 			}
 			.user__name {
-				@include adaptive-font(35, 21);
-				line-height: 41px;
+				@include adaptive-font(58, 26);
+				line-height: 60px;
 				font-weight: 500;
 				color: #ffffff;
 			}
 			.user__desc {
-				@include adaptive-font(16, 14);
+				@include adaptive-font(22, 18);
 				line-height: 24px;
 				color: #ffffff;
 			}

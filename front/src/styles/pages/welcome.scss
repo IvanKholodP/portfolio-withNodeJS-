@@ -1,10 +1,12 @@
 .welcome__auth {
-	width: 100vw;
-	height: 100vh;
 	.welcome__bg-img {
-		width: 100vw;
+		width: 100%;
 		height: 100vh;
 		object-fit: cover;
+		img {
+			width: 100%;
+			height: 100%;
+		}
 	}
 	.content__welcome {
 		position: absolute;
@@ -49,8 +51,8 @@
 				.welcome__photo {
 					padding: 40px 0 0 0;
 					.welcome__photo-img {
-						width: 140px;
-						height: 140px;
+						width: 160px;
+						height: 160px;
 						border-radius: 50%;
 						object-fit: cover;
 					}
@@ -59,14 +61,14 @@
 					}
 				}
 				.welcome__name {
-					@include adaptive-font(28, 16);
+					@include adaptive-font(36, 26);
 					line-height: 41px;
 					font-weight: 500;
 					color: #ffffff;
 					padding: 20px 0 10px 0;
 				}
 				.welcome__desc {
-					@include adaptive-font(16, 14);
+					@include adaptive-font(18, 16);
 					line-height: 24px;
 					color: #ffffff;
 				}
@@ -95,6 +97,7 @@
 						display: flex;
 						height: 45px;
 						width: 100%;
+						border-radius: 0 0 10px 10px;
 						background-color: rgba(22, 90, 209, 0.5);
 						.nav-menu__list {
 							flex: 0 1 33.333%;
@@ -121,11 +124,20 @@
 							&:hover {
 								background-color: $blue;
 							}
+							&:nth-child(3):hover {
+								border-radius: 0 0 10px 0;
+							}
+							&:nth-child(1):hover {
+								border-radius: 0 0 0 10px;
+							}
 							.nav-menu__link {
 								color: $white;
 								@include adaptive-font(16, 14);
 								letter-spacing: 1px;
 								font-weight: 500;
+								display: block;
+								width: 100%;
+								height: 100%;
 							}
 						}
 					}
@@ -153,38 +165,33 @@
 					display: flex;
 					flex-direction: column;
 					height: 410px;
+					width: 100%;
 					.status {
 						color: $white;
-						padding: 0 0 0 20px;
+						padding: 0 0 10px 5px;
 					}
 					.form__item {
 						display: flex;
 						flex: 1 1 auto;
-						padding: 10px 20px;
+						padding: 0 5px;
 						color: $white;
 						font-size: 16px;
 						.checkbox__label {
 							padding: 0 0 0 10px;
 						}
 						.form__input {
-							width: 295px;
+							width: 325px;
 							padding: 0 0 0 10px;
 							height: 45px;
+							border-radius: 0 5px 5px 0;
 						}
-						.user__login-img {
-							width: 45px;
-							height: 45px;
-							background-color: #f0efe9;
-							position: relative;
-							img {
-								@include stance(both);
-							}
-						}
+						.user__login-img,
 						.user__login-parol {
 							width: 45px;
 							height: 45px;
 							background-color: #f0efe9;
 							position: relative;
+							border-radius: 5px 0 0 5px;
 							img {
 								@include stance(both);
 							}
@@ -208,13 +215,15 @@
 						}
 					}
 					.auth__menu {
-						width: 380px;
+						width: 100%;
+						padding: 0;
 						.nav-menu {
 							display: flex;
 							height: 45px;
 							width: 100%;
 							background-color: rgba(22, 90, 209, 0.5);
 							position: relative;
+							border-radius: 0 0 10px 10px;
 							.nav-menu__list {
 								flex: 0 1 50%;
 								text-align: center;
@@ -222,6 +231,7 @@
 								position: relative;
 								.link__back-home {
 									border-right: 2px solid $white;
+									border-radius: 0 0 0 10px;
 								}
 								.nav-menu__link {
 									color: $white;
@@ -234,7 +244,11 @@
 									cursor: pointer;
 									position: relative;
 								}
-								&:hover {
+								.link__submit {
+									border-radius: 0 0 10px 0;
+								}
+								.link__submit:hover,
+								.link__back-home:hover {
 									background-color: $blue;
 								}
 							}
@@ -256,33 +270,73 @@
 	visibility: hidden;
 }
 
-@media (max-width: 767px) {
-	.content {
-		.content__auth {
-			right: 15px;
-			top: 5px;
-		}
-		.content__body {
-			width: 350px;
-			height: 380px;
-			.welcome__photo {
-				padding: 25px 0 0 0;
-			}
-			.welcome__name {
-				padding: 15px 0 5px 0;
-			}
-			.welcome__socials {
-				padding: 15px 0 0 0;
+@media (max-width: 540px) and (orientation: portrait) {
+	.welcome__auth {
+		.content__welcome {
+			.content__item {
+				width: 310px;
+				height: 390px;
+				.content__body-welcome {
+					.welcome__photo {
+						padding: 20px 0 0 0;
+						.welcome__photo-img {
+							width: 150px;
+							height: 150px;
+						}
+					}
+				}
 			}
 		}
 	}
 }
 
-@media (max-width: 540px) {
-	.content {
-		.content__body {
-			width: 300px;
-			height: 370px;
+@media (max-width: 813px) and (orientation: landscape) {
+	.welcome__auth {
+		.content__welcome {
+			.content__item {
+				height: 87%;
+				.content__body-welcome {
+					.welcome__photo {
+						padding: 5px 0 0 0;
+						.welcome__photo-img {
+							width: 135px;
+							height: 135px;
+						}
+					}
+					.welcome__name {
+						line-height: 1px;
+						padding: 3% 0;
+					}
+					.welcome__desc {
+						line-height: 0;
+						padding: 3% 0;
+					}
+					.welcome__socials {
+						padding: 3% 0;
+					}
+					.welcome__menu {
+						.nav-menu {
+							height: 35px;
+							.nav-menu__list {
+								line-height: 39px;
+							}
+						}
+					}
+				}
+				.content__body-auth {
+					.auth__label {
+						padding: 15px 0 0 0;
+						.form {
+							.status {
+								padding: 5px;
+							}
+						}
+					}
+				}
+			}
+		}
+		.content__footer {
+			bottom: 5px;
 		}
 	}
 }

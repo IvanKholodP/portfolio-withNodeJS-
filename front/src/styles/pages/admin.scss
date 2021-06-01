@@ -3,7 +3,7 @@
 	position: relative;
 	font-family: "Roboto", sans-serif;
 	font-weight: 400;
-	overflow: hidden;
+	overflow-x: hidden;
 	background-color: antiquewhite;
 	.admin_content {
 		position: absolute;
@@ -66,8 +66,8 @@
 					position: absolute;
 					top: 0;
 					left: 0;
-					width: 100%;
-					height: 100%;
+					width: 100vw;
+					height: 100vh;
 					img {
 						object-fit: fill;
 					}
@@ -170,7 +170,8 @@
 
 @media (max-width: 540px) {
 	.admin_wrapper {
-		overflow: auto;
+		overflow-x: hidden;
+		overflow-y: scroll;
 		width: 100%;
 		.admin_content {
 			.header_admin {

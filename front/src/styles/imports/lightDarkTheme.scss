@@ -1,0 +1,215 @@
+#dark {
+	.wrapper {
+		.header {
+			&::before {
+				background-color: rgba(0, 0, 0, 0.6);
+			}
+			.socials__item {
+				.socials__icon {
+					fill: $white;
+				}
+				:hover svg {
+					fill: $bluesvg;
+				}
+			}
+			.nav-menu__list {
+				a::after {
+					background-color: $white;
+				}
+				.nav-menu__link {
+					color: $white;
+				}
+			}
+			.material-icons {
+				color: $white;
+			}
+		}
+		.about {
+			.triangle {
+				&_fill {
+					&_white {
+						fill: $darkwhite;
+					}
+					&_beige {
+						fill: $darkbeige;
+					}
+				}
+			}
+			.about__left {
+				background: $darkwhite;
+				color: $white;
+				.title {
+					color: $white;
+					&::after,
+					&::before {
+						background: rgba($white, 0.8);
+					}
+				}
+				.subtitle {
+					color: $white;
+					&::after {
+						background-color: rgba($white, 0.8);
+					}
+				}
+			}
+			.about__right {
+				background: $darkbeige;
+				color: $white;
+				.subtitle {
+					color: $white;
+					&::after {
+						background-color: rgba($white, 0.8);
+					}
+				}
+				.skills {
+					color: $white;
+					.skills__circle-under {
+						stroke: $darkwhite;
+					}
+					.skill__name {
+						color: $beige;
+					}
+				}
+			}
+		}
+		.block_triangle {
+			.triangle {
+				&_fill {
+					fill: $darkbeige;
+				}
+			}
+		}
+		.blog {
+			.section-articles {
+				background-color: $darkbeige;
+				.blog_aside {
+					.blog_aside__link {
+						color: $white;
+						&._active_blog__aside::before {
+							background-color: $bluesvg;
+						}
+					}
+					._active_blog__aside {
+						color: $blue;
+					}
+				}
+				.articles-list {
+					.article {
+						::before {
+							background-color: #91a5b1;
+						}
+						.article__header {
+							color: $white;
+						}
+						.article__data {
+							color: $blue;
+						}
+						.article__text {
+							color: $beige;
+						}
+					}
+				}
+			}
+		}
+		.works {
+			background-color: $darkbeige;
+			.title {
+				color: $white;
+			}
+			.prevSlide,
+			.nextSlide {
+				color: $white;
+				background-color: rgba(0, 0, 0, 0);
+			}
+		}
+		.contacts {
+			.form__input,
+			.form__textarea {
+				background-color: $darkwhite;
+			}
+		}
+		.footer {
+			#footer__block {
+				color: $white;
+				background-color: $darkbeige;
+				a {
+					color: $white;
+				}
+				.footer__row_top {
+					background-color: rgba(71, 75, 87, 0.2);
+					.footer__center {
+						&::after {
+							background-color: $white;
+						}
+						&::before {
+							background-color: $white;
+						}
+						.socials__item {
+							.socials__icon {
+								fill: $white;
+							}
+							:hover svg {
+								fill: $blue;
+							}
+						}
+					}
+					.footer__right {
+						a::after {
+							background-color: $white;
+						}
+					}
+				}
+			}
+			.nav-menu {
+				a::after {
+					background-color: $white;
+				}
+			}
+		}
+	}
+	@media (max-width: 767px) {
+		.header {
+			.header__burger {
+				&::before,
+				&::after {
+					background-color: $white;
+				}
+				& span {
+					background-color: $white;
+				}
+			}
+			.header__menu {
+				background-color: rgba(7, 30, 71, 0.8);
+			}
+		}
+		.about {
+			.about__left {
+				.triangle__visible {
+					fill: $darkwhite;
+				}
+			}
+		}
+		.accordion {
+			background-color: $darkwhite;
+			color: $white;
+			&::after,
+			&::before {
+				background-color: $white;
+			}
+		}
+		.footer__left {
+			&::before {
+				background-color: $white;
+			}
+		}
+	}
+	@media (max-width: 540px) {
+		.footer__block {
+			.footer__center {
+				& > :before {
+					background-color: $white;
+				}
+			}
+		}
+	}
+}

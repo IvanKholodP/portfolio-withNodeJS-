@@ -1,6 +1,6 @@
 block variables
 	-var autor = 'Іван Холод'
-	-var desc = 'Особистий сайт Front-end Developer'
+	- var desc = 'Особистий сайт Software Engineer';
 
 include mixins
 
@@ -12,6 +12,7 @@ html(lang="uk")
 		meta(name="viewport", content="width=device-width, initial-scale=1.0")
 		title #{title}
 		link(rel="stylesheet", href="main.css")
+		link(href='https://fonts.googleapis.com/icon?family=Material+Icons' rel='stylesheet')
 	body
 		include ../front/build/img/icons/sprite.svg
 		block content

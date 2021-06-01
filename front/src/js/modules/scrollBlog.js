@@ -10,7 +10,7 @@ if (blogLinks.length > 0) {
 		if (blogLink.dataset.scroll && document.querySelector(blogLink.dataset.scroll)) {
 			const heroOffsetHeight = document.querySelector('.header').offsetHeight
 			const scrollBlock = document.querySelector(blogLink.dataset.scroll);
-			const scrollBlockValue = scrollBlock.getBoundingClientRect().top + pageYOffset - heroOffsetHeight;
+			const scrollBlockValue = scrollBlock.getBoundingClientRect().top + pageYOffset; // - heroOffsetHeight;
 
 			window.scrollTo({
 				top: scrollBlockValue,

@@ -13,11 +13,11 @@ block content
 						ul.blog_aside__list
 							each index in items
 								li.blog_aside__item
-									a(href="#" data-scroll=`.artticle${index.list}`).blog_aside__link= index.title
+									a(href="#" data-scroll=`.article${index.list}`).blog_aside__link= index.title
 					.articles-list
 						.article-list-box
 							each index in items
-								article(data-article=`.goto${index.list}`).article.artticle1
+								article(data-article=`.goto${index.list}` class=`article${index.list}`).article
 									.article__header= index.title
 									.article__data= index.date
 									.article__text= index.text

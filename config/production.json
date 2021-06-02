@@ -6,8 +6,8 @@
 	"port": 465,
 	"secure": true,
 	"auth": {
-		"user": "ivan.kholod.work@gmail.com",
-		"pass": "zohan1991"
+		"user": "ivanxolod91@gmail.com",
+		"pass": "haqq18f26l"
 	},
 	"tls": {
 		"rejectUnauthorized": false

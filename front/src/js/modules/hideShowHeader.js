@@ -14,8 +14,11 @@ if (header) {
 			setTimeout(() => {
 				if (defaultOffset < window.pageYOffset) {
 					header.classList.add('header_hide');
+					document.querySelector('body').classList.remove('_lock');
+					document.querySelector('.header__menu').classList.remove('_active__burger');
+					document.querySelector('.header__burger').classList.remove('_active__burger');
 				}
-			}, 3000)
+			}, 5000)
 		}
 		startScroll = positionScroll();
 	})

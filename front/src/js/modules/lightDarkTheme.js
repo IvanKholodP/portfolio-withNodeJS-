@@ -9,7 +9,7 @@ if (themeToggleBtn) {
 			localStorage.setItem('theme', 'dark')
 		};
 		document.querySelector('.header__menu').classList.remove('_active__burger');
-		document.querySelector('.header__burger').classList.remove('_active__burger');;
+		document.querySelector('.header__burger').classList.remove('_active__burger');
 		document.querySelector('body').classList.remove('_lock');
 		addClassDark();
 	})

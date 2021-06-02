@@ -2,7 +2,7 @@
 	"mongoUrl": "mongodb+srv://ivan:1718asd@cluster0.o9eb5.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
 	"secret": "best",
 	"subject": "Повідомлення з сайта портфоліо",
-	"host": "smtp.gmail.gom",
+	"host": "smtp.gmail.com",
 	"port": 465,
 	"secure": true,
 	"auth": {

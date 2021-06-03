@@ -42,9 +42,9 @@ router.post('/worksapi/send_mail', async (req, res) => {
 		await sendMailToDatabase.save();
 
 		//ініціюємо модуль для відправки повідомлень
-		const transporter = await nodemailer.createTransport({
+		const transporter = nodemailer.createTransport({
 			service: "gmail",
-			host: "smtp.gmail.com",
+			// host: "smtp.gmail.com",
 			// port: 465,
 			// secure: true,
 			auth: {
@@ -67,7 +67,7 @@ router.post('/worksapi/send_mail', async (req, res) => {
 		};
 
 		//відправляємо пошту
-		await transporter.sendMail(mailOptions, (error, info) => {
+		transporter.sendMail(mailOptions, (error, info) => {
 			if (error) {
 				return res.json({ message: 'При відправці повідомлення виникла помилка' + error });
 			}

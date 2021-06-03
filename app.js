@@ -38,11 +38,7 @@ app.use(session({
 	store: store,
 }))
 
-app.use(works);
-app.use(blog);
-app.use(about);
-app.use(admin);
-app.use(welcome);
+app.use(works, blog, about, admin, welcome);
 
 // 404 catch-all handler (middleware)
 app.use((req, res, next) => {

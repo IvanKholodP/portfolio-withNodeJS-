@@ -46,3 +46,16 @@ if (firstActiveClass.length > 0) {
 	firstActiveClass[0].classList.add(activeBlogAside)
 }
 
+const blogAside = document.querySelector('.blog_aside');
+if (blogAside) {
+	blogAside.addEventListener('click', function (e) {
+		e.preventDefault();
+		if (this.classList.contains('_blog_aside-hide')) {
+			this.querySelector('.blog_aside__list').style.display = 'none';
+			this.classList.remove('_blog_aside-hide');
+		} else {
+			this.querySelector('.blog_aside__list').style.display = 'block';
+			this.classList.add('_blog_aside-hide');
+		};
+	});
+};

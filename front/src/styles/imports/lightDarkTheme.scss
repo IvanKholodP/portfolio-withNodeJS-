@@ -190,6 +190,13 @@
 				}
 			}
 		}
+		.blog {
+			.blog_aside {
+				&._blog_aside-hide {
+					background-color: $darkbeige;
+				}
+			}
+		}
 		.accordion {
 			background-color: $darkwhite;
 			color: $white;

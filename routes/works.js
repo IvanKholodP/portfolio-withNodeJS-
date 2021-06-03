@@ -39,21 +39,21 @@ router.post('/worksapi/send_mail', async (req, res) => {
 			date: new Date().setUTCHours(12)
 		})
 
-		await sendMailToDatabase.save()
+		await sendMailToDatabase.save();
 
 		//ініціюємо модуль для відправки повідомлень
-		const transporter = nodemailer.createTransport({
+		const transporter = await nodemailer.createTransport({
 			service: "gmail",
 			host: "smtp.gmail.com",
-			port: 465,
-			secure: true,
+			// port: 465,
+			// secure: true,
 			auth: {
 				user: config.auth.user,
 				pass: config.auth.pass
 			},
-			tls: {
-				rejectUnauthorized: false
-			}
+			// tls: {
+			// 	rejectUnauthorized: false
+			// }
 		});
 		const mailOptions = {
 			from: `"${req.body.name}" <${req.body.email}>`,
@@ -71,7 +71,7 @@ router.post('/worksapi/send_mail', async (req, res) => {
 			if (error) {
 				return res.json({ message: 'При відправці повідомлення виникла помилка' + error });
 			}
-			res.json({ message: 'Повідомлення успішно надіслано' });
+			res.json({ message: 'Повідомлення успішно надіслано' + info });
 		});
 	} catch (e) {
 		res.json({ message: 'Щось пішло не так, спробуйте ще раз' });

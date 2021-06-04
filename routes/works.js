@@ -43,23 +43,14 @@ router.post('/worksapi/send_mail', async (req, res) => {
 
 		//ініціюємо модуль для відправки повідомлень
 		const transporter = nodemailer.createTransport({
-			// service: "gmail",
-			// host: "smtp.gmail.com",
-			// port: 465,
-			// secure: true,
-			host: "smtp-mail.outlook.com", // hostname
-			secureConnection: false, // TLS requires secureConnection to be false
-			port: 587, // port for secure SMTP
-			tls: {
-				ciphers: 'SSLv3'
-			},
+			service: "gmail",
 			auth: {
 				user: config.auth.user,
 				pass: config.auth.pass
 			},
-			// tls: {
-			// 	rejectUnauthorized: true
-			// }
+			tls: {
+				rejectUnauthorized: false
+			}
 		});
 		const mailOptions = {
 			from: `"${req.body.name}" <${req.body.email}>`,

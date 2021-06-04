@@ -50,7 +50,7 @@ const blogAside = document.querySelector('.blog_aside');
 if (blogAside) {
 	blogAside.addEventListener('click', function (e) {
 		e.preventDefault();
-		if (this.classList.contains('_blog_aside-hide')) {
+		if (window.innerWidth < 600 && this.classList.contains('_blog_aside-hide')) {
 			this.querySelector('.blog_aside__list').style.display = 'none';
 			this.classList.remove('_blog_aside-hide');
 		} else {
@@ -58,4 +58,16 @@ if (blogAside) {
 			this.classList.add('_blog_aside-hide');
 		};
 	});
+
+	window.addEventListener('resize', (e) => {
+		e.preventDefault();
+		if (window.innerWidth > 600) {
+			blogAside.classList.remove('_blog_aside-hide');
+			blogAside.querySelector('.blog_aside__list').style.display = 'block';
+		} else {
+			blogAside.classList.remove('_blog_aside-hide');
+			blogAside.querySelector('.blog_aside__list').style.display = 'none';
+		};
+	});
 };
+

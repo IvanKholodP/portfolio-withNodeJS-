@@ -11,6 +11,9 @@
     "watch": "cross-env NODE_ENV=development webpack --mode development --watch",
     "all": "concurrently \"npm run server\" \"npm run watch\""
   },
+  "engines": {
+    "node": "12.x"
+  },
   "browserslist": "> 0.25%, not dead",
   "author": "",
   "license": "ISC",

@@ -12,7 +12,8 @@
     "all": "concurrently \"npm run server\" \"npm run watch\""
   },
   "engines": {
-    "node": "12.x"
+    "node": "12.x",
+    "npm": "7.x"
   },
   "browserslist": "> 0.25%, not dead",
   "author": "",

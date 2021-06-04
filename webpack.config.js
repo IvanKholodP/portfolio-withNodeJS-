@@ -2,7 +2,7 @@ const path = require('path');
 const CopyPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const TerserPlugin = require("terser-webpack-plugin");
-const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 const PATHS = {
@@ -22,7 +22,7 @@ const optimization = () => {
 	if (isProd) {
 		config.minimizer = [
 			new TerserPlugin(),
-			new OptimizeCssAssetsPlugin()
+			new CssMinimizerPlugin()
 		]
 	}
 	return config

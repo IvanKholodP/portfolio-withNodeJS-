@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const session = require('express-session');
 const config = require('config');
@@ -24,12 +25,12 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 const store = new MongoDBStore({
-	uri: configProd.mongoUrl,
+	uri: process.env.MONGO_URL,
 	collection: 'mySessions'
 });
 
 app.use(session({
-	secret: configProd.secret,
+	secret: process.env.SECRET_WORD,
 	resave: false,
 	saveUninitialized: false,
 	cookie: {
@@ -57,7 +58,7 @@ const PORT = process.env.PORT || 3000;
 
 async function start() {
 	try {
-		await mongoose.connect(configProd.mongoUrl, {
+		await mongoose.connect(process.env.MONGO_URL, {
 			useNewUrlParser: true,
 			useUnifiedTopology: true,
 			useCreateIndex: true,

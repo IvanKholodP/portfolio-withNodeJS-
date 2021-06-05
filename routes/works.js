@@ -4,7 +4,7 @@ const Message = require('../models/Message');
 const Picture = require('../models/Picture');
 const router = Router();
 const nodemailer = require('nodemailer');
-const config = require('../config/production');
+const config = require('config');
 
 
 router.get('/works', async (req, res) => {
@@ -44,19 +44,12 @@ router.post('/worksapi/send_mail', async (req, res) => {
 		//ініціюємо модуль для відправки повідомлень
 		const transporter = nodemailer.createTransport({
 			service: "gmail",
-			// host: 'smtp.gmail.com',
-			// port: 465,
-			// secure: true,
 			auth: {
 				type: "OAuth2",
 				user: process.env.EMAIL,
-				// pass: "worldof1991!"
-				// accessToken: "ya29.a0AfH6SMAiLzpxgtSxHXWO-p0NDN64EZc9f1DwIC33ROgAGAwT08MrnUNODbPMHT-ASXOTe9Crh9Z_blaIlgeCJK_91EcDqiGG5IH7gQoxXmMX8MoSxtXsIBNlTBA_xgDmGwsg8nlhfkKYYtLGRZ-e99j9FjyX",
-				// expires: 1622841783977 + 60000,
 				clientId: process.env.EMAIL_CLIENT_ID,
 				clientSecret: process.env.EMAIL_CLIENT_SECRET,
 				refreshToken: process.env.EMAIL_REFRESH_TOKEN,
-				// accessUrl: "https://oauth2.googleapis.com/token"
 			},
 			tls: {
 				rejectUnauthorized: false
@@ -64,8 +57,8 @@ router.post('/worksapi/send_mail', async (req, res) => {
 		});
 		const mailOptions = {
 			from: `"${req.body.name}" <${req.body.email}>`,
-			to: config.auth.user,
-			subject: config.subject,
+			to: config.get('userEmail'),
+			subject: config.get('subject'),
 			text: req
 				.body
 				.text

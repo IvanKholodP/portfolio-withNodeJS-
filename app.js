@@ -1,7 +1,6 @@
 require('dotenv').config();
 const express = require('express');
 const session = require('express-session');
-const config = require('config');
 const mongoose = require('mongoose');
 const MongoDBStore = require('connect-mongodb-session')(session);
 const path = require('path');
@@ -10,9 +9,7 @@ const works = require('./routes/works');
 const blog = require('./routes/blog');
 const about = require('./routes/about');
 const admin = require('./routes/admin');
-const configProd = require('./config/production');
 const app = express();
-
 
 
 app.set('views', path.join(__dirname, 'views'));

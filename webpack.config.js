@@ -17,7 +17,7 @@ const optimization = () => {
 	const config = {
 		splitChunks: {
 			chunks: 'all'
-		}
+		},
 	}
 	if (isProd) {
 		config.minimizer = [
@@ -30,7 +30,7 @@ const optimization = () => {
 
 module.exports = {
 	mode: 'development',
-	devtool: 'source-map',
+	devtool: 'inline-source-map',
 	context: PATHS.src + '',
 	entry: './js/main.js',
 	output: {
@@ -38,6 +38,14 @@ module.exports = {
 		filename: '[name].js'
 	},
 	optimization: optimization(),
+	performance: {
+		hints: false,
+		maxEntrypointSize: 512000,
+		maxAssetSize: 512000
+	},
+	stats: {
+		children: false,
+	},
 	plugins: [
 		new MiniCssExtractPlugin({
 			filename: '[name].css'
@@ -53,14 +61,14 @@ module.exports = {
 		new CleanWebpackPlugin()
 	],
 	resolve: {
-		extensions: ['.js']
+		extensions: ['.js', '.png']
 	},
 	module: {
 		rules: [
-			{
-				test: /\.css$/,
-				use: [MiniCssExtractPlugin.loader, "css-loader"],
-			},
+			// {
+			// 	test: /\.css$/,
+			// 	use: [MiniCssExtractPlugin.loader, "css-loader"],
+			// },
 			{
 				test: /\.s?css$/,
 				use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']
